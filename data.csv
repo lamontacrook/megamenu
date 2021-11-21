@@ -1,0 +1,5 @@
+﻿name,linkURL,,linkName,,isBold,,model,path
+Incident Response (DFIR),string,/incident-response-dfir,string,Incident Response (DFIR),boolean,TRUE,/conf/megamenu/settings/dam/cfm/models/links,/api/assets/megamenu/navigation/position-2/incident-response-dfir.json
+Compromise Assessment,string,/compromise-assessment,string,Compromise Assessment,boolean,TRUE,/conf/megamenu/settings/dam/cfm/models/links,/api/assets/megamenu/navigation/position-2/compromise-assessment.json
+Endpoint Recovery,string,/endpoint-recovery,string,Endpoint Recovery,boolean,TRUE,/conf/megamenu/settings/dam/cfm/models/links,/api/assets/megamenu/navigation/position-2/endpoint-recovery.json
+Newtwork Security Monitoring,string,/newtwork-security-monitoring,string,Newtwork Security Monitoring,boolean,TRUE,/conf/megamenu/settings/dam/cfm/models/links,/api/assets/megamenu/navigation/position-2/newtwork-security-monitoring.json
