@@ -1,0 +1,32 @@
+{
+  "topList": {
+    "items": [
+      {
+        "menuItems": [
+          {
+            "_path": "/content/dam/megamenu/navigation/products-1",
+            "menuName": "Products",
+            "items": [
+              {
+                "_path": "/content/dam/megamenu/navigation/category-1",
+                "categoryName": "Category 1",
+                "category": [
+                  {
+                    "linkName": "Falcon Complete: Managed Endpoint Security",
+                    "linkURL": "/falcon-complete-managed-endpoint-security",
+                    "isBold": true
+                  },
+                  {
+                    "linkName": "Falcon Enterprise: Breach Prevention",
+                    "linkURL": "/falcon-enterprise-breach-prevention",
+                    "isBold": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
