@@ -16,18 +16,17 @@ function links(params) {
 };
 
 function category() {
-    let params = categories;
-    let name = params.title.toLowerCase().replace(" ", "-").replace(/[^a-zA-Z0-9]/g,'_');
+    let name = categories.name;
     return {
         properties: {
-            title: params.title,
-            path: `${name}.json`,
+            title: categories.title,
+            path: categories.path,
             elements: {
                 category: {
-                    value: params.values
+                    value: categories.values
                 },
                 categoryName: {
-                    value: params.title
+                    value: categories.title
                 }
             },
             name: name,
@@ -40,12 +39,21 @@ function category() {
 
 const categories = {
     'title':'',
+    'name':'',
+    'path':'',
     'values':[]
 };
 
 function packCategories(params) {
-    if(categories.hasOwnProperty('title') != params['category title'])
+    if(categories.hasOwnProperty('title') != params['category title']) {
         categories.title = params['category title'];
+        categories.name = categories.title.toLowerCase().replace(" ", "-").replace(/[^a-zA-Z0-9]/g,'_');
+        let spot = params.path.split('/');
+        spot.pop();
+        spot.pop();
+        categories.path = `${spot.join('/')}/${categories.name}.json`;
+        
+    }
 
     categories.values.push(params.path);
 
