@@ -1,7 +1,7 @@
 const CSVToJSON = require("csvtojson");
 const https = require("https");
-const { exit } = require("process");
 const json = require('format-json');
+const { links, category, packCategories } = require("./utils");
 
 function loadData() {
 
@@ -24,26 +24,9 @@ function loadData() {
           pkey = key;
         }
 
-        let name = cf.name;
-        let model = cf.model;
-        let path = cf.path;
-
-        delete cf.name;
-        delete cf.model;
-        delete cf.path;
-
-        let payload = `{ 
-            "properties": {
-                "title":"${name}",
-                "cq:model": "${model}",
-                "elements": ${JSON.stringify(cf)}
-            }
-        }`;
-
-        data.push({
-          payload: JSON.parse(payload),
-          path: path
-        });
+        packCategories(cf);
+        data.push(links(cf));
+        
       });
 
       return (data);
@@ -84,8 +67,41 @@ function createCf(payload, path) {
   req.end()
 }
 
-let l = loadData();
-l.then((d) => console.log(d));
+function loadCategory() {
+
+  let data = [];
+
+  return CSVToJSON()
+    .fromFile("./category.csv")
+    .then((cfs) => {
+      let _i = 0;
+      cfs.forEach((cf) => {
+        
+        cf.name = cf.title.toLowerCase().replace(" ", "-").replace(/[^a-zA-Z0-9]/g,'_');
+        cf.path = `${cf.path}${cf.name}.json`;
+        cf.values = [
+          "/content/dam/megamenu/navigation/position-1/falcon-complete-managed-endpoint-security.json",
+          "/content/dam/megamenu/navigation/position-1/falcon-enterprise-breach-prevention.json"
+      ];
+        console.log((category(cf)));
+        /*data.push({
+          payload: JSON.parse(links({name: name, model: process.env.LINKS_MODEL, cf:cf})),
+          path: path
+        });*/
+      });
+
+      return (data);
+
+    })
+}
+
+loadData().then((d) => {
+  console.log(d);
+  console.log(category());
+});
+
+//let l = loadLinks();
+//l.then((d) => console.log(JSON.stringify(d[0])));
 
 
 /****

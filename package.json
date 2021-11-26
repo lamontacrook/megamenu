@@ -5,15 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE-ENV=production node index.js"
+    "start": "node --require dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csvtojson": "^2.0.10"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^10.0.0",
     "format-json": "^1.0.3"
   }
 }
