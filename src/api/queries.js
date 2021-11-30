@@ -2,14 +2,20 @@ export const navigationListQuery = `{
   topList {
     items {
       menuItems {
+        _path
         menuName
         items {
-          ... on LinksModel {
-            linkName
-            linkURL
-            isBold
+          ... on CategoryListModel {
+            _path
+            categoryName
+            category {
+              linkName
+              linkURL
+              isBold
+            }
           }
         }
+        
       }
     }
   }

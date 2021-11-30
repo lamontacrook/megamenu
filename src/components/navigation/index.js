@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import ErrorScreen from "../Error";
 
-import data from "../../api/gql.json";
-//import { navigationListQuery } from "../../api/queries";
-//import { useGraphQL } from "../../api/useGraphQL";
+//import data from "../../api/gql.json";
+import { navigationListQuery } from "../../api/queries";
+import { useGraphQL } from "../../api/useGraphQL";
 
 import Image from "../image";
 
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 export default function Navigation() {
-  //const { data, errors } = useGraphQL(navigationListQuery);
-  const errors = null;
+  const { data, errors } = useGraphQL(navigationListQuery);
+  //const errors = null;
 
   const [hasFetched, setHasFetched] = useState(false);
 
@@ -35,33 +35,33 @@ export default function Navigation() {
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            {data.topList.items[0].menuItems.map((item) => (
-              <Nav className="me-auto">
+            <Nav className="me-auto">
+              {data.topList.items[0].menuItems.map((item) => (
+
                 <NavDropdown title={item.menuName} id="collasible-nav-dropdown">
                   {item.items.map((category) => (
-                    
+
                     <NavDropdown.Header title={category.categoryName}>{category.categoryName}
-                  <NavDropdown.Divider />
-                    {category.category.map((links) => (
-                      <NavDropdown.Item href={links.linkUrl}>
-                                            {links.linkName}
-                                          </NavDropdown.Item>
-                                          ))}
-                                          </NavDropdown.Header>
-                     
-                  
-                  ))}  
-                    
-                 
-                
+                      <NavDropdown.Divider />
+                      {category.category.map((links) => (
+                        <NavDropdown.Item href={links.linkUrl}>
+                          {links.linkName}
+                        </NavDropdown.Item>
+                      ))}
+                    </NavDropdown.Header>
+
+
+                  ))}
+
                 </NavDropdown>
-              </Nav>
-            ))}
+
+              ))}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     );
 
-   
+
   }
 }
