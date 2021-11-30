@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/megamenu/static/css/main.e1ce61ea.chunk.css",
+    "main.js": "/megamenu/static/js/main.89499dbd.chunk.js",
+    "main.js.map": "/megamenu/static/js/main.89499dbd.chunk.js.map",
+    "runtime-main.js": "/megamenu/static/js/runtime-main.3134beba.js",
+    "runtime-main.js.map": "/megamenu/static/js/runtime-main.3134beba.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/megamenu/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.7ad3e452.chunk.js": "/megamenu/static/js/2.7ad3e452.chunk.js",
+    "static/js/2.7ad3e452.chunk.js.map": "/megamenu/static/js/2.7ad3e452.chunk.js.map",
+    "static/js/3.95ad92ec.chunk.js": "/megamenu/static/js/3.95ad92ec.chunk.js",
+    "static/js/3.95ad92ec.chunk.js.map": "/megamenu/static/js/3.95ad92ec.chunk.js.map",
+    "index.html": "/megamenu/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/megamenu/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.e1ce61ea.chunk.css.map": "/megamenu/static/css/main.e1ce61ea.chunk.css.map",
+    "static/js/2.7ad3e452.chunk.js.LICENSE.txt": "/megamenu/static/js/2.7ad3e452.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3134beba.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.7ad3e452.chunk.js",
+    "static/css/main.e1ce61ea.chunk.css",
+    "static/js/main.89499dbd.chunk.js"
+  ]
+}
