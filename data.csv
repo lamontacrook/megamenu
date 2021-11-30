@@ -1,3 +1,4 @@
 ﻿name,category title,linkURL,,linkName,,isBold,,path
 Link 1,Category 1,string,/link-1,string,Link 1,boolean,TRUE,/api/assets/megamenu/navigation/category-1/link-1.json
 Link 2,Category 1,string,/link-2,string,Link 2,boolean,TRUE,/api/assets/megamenu/navigation/category-1/link-2.json
+Link 3,Category 2,string,/link-3,string,Link 3,boolean,TRUE,/api/assets/megamenu/navigation/category-2/link-3.json

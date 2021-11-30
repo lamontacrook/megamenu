@@ -1,7 +1,10 @@
 const CSVToJSON = require("csvtojson");
 const https = require("https");
 const json = require('format-json');
-const { links, category, packCategories } = require("./utils");
+const { links, getCategories, packCategories, folder } = require("./utils");
+const logger = require('node-color-log');
+
+const create = require('./libs');
 
 function loadData() {
 
@@ -67,7 +70,21 @@ function createCf(payload, path) {
   req.end()
 }
 
-loadData().then((d) => {
-  console.log(d);
-  console.log(category());
+loadData().then((links) => {
+  
+  links.forEach((link) => {
+
+    //logger.info(`Preparing payload for ${link.properties.title}`)
+    logger.info(`Preparing payload for ${link.properties.title}\n${json.plain(link)}`);
+  
+  })
+
+  getCategories().forEach((category) => {
+    folder(category);
+    logger.info(`Preparing payload for ${category.properties.title}\n${json.plain(category)}`);
+  })
+
+  let c = new create('hello');
+  //console.log(create);
+  
 });
