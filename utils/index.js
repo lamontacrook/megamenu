@@ -53,8 +53,8 @@ function packCategories(params) {
   let name = params["category title"]
     .toLowerCase()
     .replace(" ", "-")
-    .replace(/[^a-zA-Z0-9]/g, "_");
-  let path = `${spot.join("/")}/${name}.json`;
+    .replace(/[^a-zA-Z0-9]/g, "-");
+  let path = `${spot.join("/")}/${name}`;
 
   var i = categories.length - 1;
   do {
@@ -75,13 +75,13 @@ function packCategories(params) {
 }
 
 function folder(params) { 
-  return `{
-    path:${params.properties.path},
+  return {
+    path: params.properties.path,
     class:'assetFolder',
     properties: {
-      'jcr:title':${params.properties.title}
+      'jcr:title': params.properties.title
     }
-  }`
+  };
 }
 
 module.exports = { folder, links, getCategories, packCategories };

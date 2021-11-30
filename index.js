@@ -70,21 +70,31 @@ function createCf(payload, path) {
   req.end()
 }
 
+//console.log(process.env.AEM_HOSTNAME);
 loadData().then((links) => {
   
+  let c = new create('hello');
+  
+  getCategories().forEach((category) => {
+    
+    //logger.info(`Preparing payload for ${category.properties.title}\n${json.plain(category)}`);
+
+    c.createFolder(folder(category))
+  })
+
   links.forEach((link) => {
 
-    //logger.info(`Preparing payload for ${link.properties.title}`)
+    logger.info(`Preparing payload for ${link.properties.title}`)
     logger.info(`Preparing payload for ${link.properties.title}\n${json.plain(link)}`);
+    c.createCF(link);
   
   })
 
-  getCategories().forEach((category) => {
-    folder(category);
+  /*getCategories().forEach((category) => {
+    
     logger.info(`Preparing payload for ${category.properties.title}\n${json.plain(category)}`);
-  })
 
-  let c = new create('hello');
-  //console.log(create);
-  
+    c.createCategory(category);
+  })*/
+
 });
