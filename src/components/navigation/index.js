@@ -29,10 +29,9 @@ export default function Navigation() {
     if (!hasFetched) setHasFetched(true);
 
     return (
-      <Navbar collapseOnSelect expand="lg" variant="light" bg="light">
-        <Container>
-          <Navbar.Brand href="#">Navbar</Navbar.Brand>
-
+      <Container>
+        <Navbar collapseOnSelect className="justify-content-right" expand="lg" variant="light" bg="light">
+          
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -58,8 +57,8 @@ export default function Navigation() {
               ))}
             </Nav>
           </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        </Navbar>
+      </Container>
     );
 
 

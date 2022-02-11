@@ -1,12 +1,17 @@
 import "./App.css";
-import { Navbar, Container } from "react-bootstrap";
-import Navigation from "./components/navigation";
+import React from "react";
+import { HashRouter, Switch, Route } from "react-router-dom";
+import Home from "./screens/home";
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-    </div>
+    <HashRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 }
 
