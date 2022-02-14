@@ -1,7 +1,32 @@
-import React from "react";
-import Entity from "../../components/entity";
+import React, { useState } from "react";
+import ErrorScreen from "../../components/Error";
 
+//import data from "../../api/gql.json";
+import { screenQuery } from "../../api/queries";
+import { useGraphQL } from "../../api/useGraphQL";
+
+//import Image from "../image";
+
+import Entity from "../../components/entity"
 export default function Home(props) {
+  const { data, errors } = useGraphQL(screenQuery);
+  //const errors = null;
+
+  const [hasFetched, setHasFetched] = useState(false);
+
+  console.log();
+
+  if (errors != null) {
+    setHasFetched(true);
+    return <ErrorScreen error={errors} />;
+  } else if (!hasFetched && data === null) {
+    return <span>What to do here?</span>;
+  } else if (hasFetched && !data.screenList.items) {
+    console.log(data.topList.items);
+    return <ErrorScreen error="There was an error with the returned data." />;
+  } else if (data != null) {
+    if (!hasFetched) setHasFetched(true);
+
   return (
     <div class="grid-container">
       <div class="header">test</div>
@@ -11,7 +36,7 @@ export default function Home(props) {
           width="96"
         />
       </div>
-      <div className="middle row2"><Entity type="navigation" /></div>
+      <div className="middle row2">navigation</div>
 
       <div className="right row2">
         <input
@@ -38,4 +63,4 @@ export default function Home(props) {
       </div>
     </div>
   );
-}
+}}

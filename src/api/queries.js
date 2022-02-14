@@ -20,3 +20,44 @@ export const navigationListQuery = `{
     }
   }
 }`;
+
+export const screenQuery = `{
+  screenList {
+    items {
+      navigation {
+        ... on TopModel {
+          menuItems {
+            menuName
+            items {
+              ... on CategoryListModel {
+                categoryName
+                category {
+                  linkName
+                  linkURL
+                  isBold
+                }
+              }
+            }
+          }
+        }
+      }
+      block {
+        ... on TeaserModel {
+          teaserImage {
+            ... on ImageRef {
+              _authorUrl
+              width
+              height
+              mimeType
+            }
+          }
+          teaserTitle
+          teaserDescription {
+            html
+          }
+          entityType
+        }
+      }
+    }
+  }
+}`;
