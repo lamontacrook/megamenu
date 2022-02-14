@@ -29,9 +29,9 @@ export default function Home(props) {
         />
       </div>
 
-      <div className="block1">
-        <Entity type="teaser" />
-      </div>
+      
+      <Entity type="teaser" />
+      <Entity type="featured" />    
 
       <div className="footer">
         <p>Footer</p>

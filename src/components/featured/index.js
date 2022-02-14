@@ -2,10 +2,10 @@ import React from "react";
 import ErrorScreen from "../Error";
 import './index.css';
 
-export default function Teaser() {
+export default function Featured() {
   return (
-    <div className="block1">
-      <div className="floater">
+    <div className="block2">
+      <div className="column40">
         <div>
           <h2>WKND Adventures</h2>
           <p>
@@ -19,7 +19,7 @@ export default function Teaser() {
         </div>
       </div>
       <img
-        className="teaser"
+        className="column60"
         src="https://wknd.site/us/en/_jcr_content/root/container/carousel/item_1571954853062.coreimg.60.1600.jpeg/1636662642365/adobestock-216674449.jpeg"
       />
     </div>

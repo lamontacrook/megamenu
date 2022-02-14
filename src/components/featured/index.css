@@ -1,0 +1,46 @@
+.block2 {
+  grid-area: block2;
+  background-color: #aaa;
+  max-height: 450px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  margin-left:150px;
+  margin-right:150px;
+  margin-top: 20px;
+}
+
+.column40 {
+  float: left;
+  width: 40%;
+  height:100%;
+  padding:20px;
+}
+
+.column60 {
+  float: left;
+  width: 60%;
+  height:100%;
+}
+
+@media (max-width: 600px) {
+  .block2 {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .column60 .column40 {
+    width: 100%;
+    
+  }
+}
+
+
+.block2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
