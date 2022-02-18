@@ -21,14 +21,27 @@ export const navigationListQuery = `{
   }
 }`;
 
-export const screenQuery = `{
-  screenList {
+export function screenQuery(name) {
+  return `{
+  screenList(filter: {
+    screenName: {
+      _expressions: {
+        value: "${name}"
+        _ignoreCase: true
+      }
+    }
+  }) {
     items {
       navigation {
         ... on TopModel {
           menuItems {
             menuName
             items {
+              __typename
+              ... on LinksModel {
+                linkURL
+                linkName
+              }
               ... on CategoryListModel {
                 categoryName
                 category {
@@ -42,10 +55,16 @@ export const screenQuery = `{
         }
       }
       block {
+        __typename
         ... on TeaserModel {
+          _model {
+            _path
+            title
+          }
           teaserImage {
             ... on ImageRef {
               _authorUrl
+              _publishUrl
               width
               height
               mimeType
@@ -54,10 +73,24 @@ export const screenQuery = `{
           teaserTitle
           teaserDescription {
             html
+            plaintext
           }
           entityType
+        }
+        ... on ExperienceFragmentModel {
+          _model {
+            title
+          }
+          name
+          experienceFragment {
+            ... on PageRef { 
+              _publishUrl
+            
+            }
+          }
         }
       }
     }
   }
 }`;
+}

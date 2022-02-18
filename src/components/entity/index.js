@@ -1,18 +1,15 @@
 import React from "react";
 import ErrorScreen from "../Error";
-import Featured from "../featured";
 import Navigation from "../navigation";
 import Teaser from "../teaser";
+import XF from "../experiencefragment";
 
 export default function Entity(props) {
-// console.log(props.type);
-    if(props.type === 'navigation') 
-        return <Navigation />
-    else if(props.type === 'teaser')
-        return <Teaser />
-    else if(props.type === 'featured')
-        return <Featured />
-    else
-        return <p>default</p>;
-
+  // console.log(props.type);
+  if (props.type === "navigation")
+    return <Navigation content={props.content} />;
+  else if (props.type === "teaser") return <Teaser content={props.content} />;
+  else if (props.type === "experience fragment")
+    return <XF content={props.content} />;
+  else return <p>default</p>;
 }

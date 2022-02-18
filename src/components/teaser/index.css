@@ -1,9 +1,12 @@
-.teaser {
+.hero {
+  margin: -10px -10px 0 -10px;
+}
+.hero img.teaser-image {
   object-fit: cover;
   width: 100%;
 }
 
-.floater {
+.hero div.floater {
   position: absolute;
   bottom: 0px;
   color: white;
@@ -15,20 +18,10 @@
   align-content: center;
 }
 
-.block1 {
-    grid-area: block1;
-    background-color: #aaa;
-    max-height: 600px;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-  }
+@media (max-width: 600px) {
+}
 
-  @media (max-width: 600px) {
-      
-  }
-.floater div {
+.hero div.floater div {
   position: absolute;
   z-index: 999;
   margin: 0 auto;
@@ -44,4 +37,43 @@
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 20px;
+}
+
+.featured {
+  position: relative;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
+  height: 450px;
+}
+
+.featured div.floater {
+  float: left;
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  background-color: #aaa;
+}
+
+.featured img.teaser-image {
+  float: left;
+  width: 60%;
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .block2 {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .featured div.floater .featured div.teaser-image {
+    width: 100%;
+  }
+}
+
+.block2:after {
+  content: "";
+  display: table;
+  clear: both;
 }

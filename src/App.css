@@ -2,6 +2,25 @@
   box-sizing: border-box;
 }
 
+.block2 {
+  grid-area: block2;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.block1 {
+  grid-area: block1;
+  background-color: #aaa;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
 body {
   background-color: #fff;
   font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -31,7 +50,7 @@ a {
 h2 {
   font-size: 36px;
   font-weight: 400;
-  font-family: Asar,Georgia,Times New Roman,Times,serif;
+  font-family: Asar, Georgia, Times New Roman, Times, serif;
   margin: 0.5em 0;
 }
 
@@ -91,7 +110,6 @@ input[type="text"] {
   padding: 10px;
 }
 
-
 /* Style the left column */
 .left {
   grid-area: left;
@@ -133,7 +151,6 @@ input[type="text"] {
     grid-template-areas:
       "header header header"
       "middle left right"
-     
       "block1 block1 block1"
       "block2 block2 block2"
       "footer footer footer";

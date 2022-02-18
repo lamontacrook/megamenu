@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from 'react';
+import Buffer from 'buffer';
 const { AEMHeadless } = require('@adobe/aem-headless-client-js')
+
 
 // environment variable REACT_APP_GRAPHQL_ENDPOINT is used to point to endpoint in AEM
 const {
