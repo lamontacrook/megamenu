@@ -6,7 +6,6 @@ import Image from "../image";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 export default function Navigation(props) {
-  console.log(typeof props.content);
   return (
     <Container>
       <Navbar
@@ -20,9 +19,9 @@ export default function Navigation(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {props.content.navigation.menuItems.map((item) => (
-              <NavDropdown title={item.menuName} id="basic-nav-dropdown">
+              <NavDropdown key={item.menuName} title={item.menuName} id="basic-nav-dropdown">
                 {item.items.map((links) => (
-                  <NavDropdown.Item href={links.linkURL}>
+                  <NavDropdown.Item key={links.linkName} href={links.linkURL}>
                     {links.linkName}
                   </NavDropdown.Item>
                 ))}

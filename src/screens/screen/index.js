@@ -27,8 +27,8 @@ export default function Screen(props) {
     if (!hasFetched) setHasFetched(true);
 
     return (
-      <div class="grid-container">
-        <div class="header">test</div>
+      <div className="grid-container">
+        <div className="header">test</div>
         <div className="left row2">
           <Link to="/">
             <img
@@ -43,7 +43,7 @@ export default function Screen(props) {
 
         <div className="right row2">
           <input
-            class="search"
+            className="search"
             data-cmp-hook-search="input"
             type="text"
             name="fulltext"
@@ -58,8 +58,8 @@ export default function Screen(props) {
         </div>
 
         {data.screenList.items[0].block.map((item) => (
-          <div className={"block" + n++}>
-            <Entity type={item._model.title.toLowerCase()} content={item} />
+          <div key={"block" + n} className={"block" + n++}>
+            <Entity key={item.key} type={item._model.title.toLowerCase()} content={item} />
           </div>
         ))}
 
