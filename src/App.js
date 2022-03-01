@@ -1,17 +1,17 @@
 import "./App.css";
 import React from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, useParams } from "react-router-dom";
 import Screen from "./screens/screen";
 
 function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route path={"/magazine:path"}>
-          <Screen name="magazine" />
+        <Route path={"/:path"}>
+          <Screen />
         </Route>
         <Route path="/">
-          <Screen name="home" />
+          <Screen />
         </Route>
       </Switch>
     </HashRouter>

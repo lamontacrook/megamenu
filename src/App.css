@@ -11,8 +11,47 @@
   position: relative;
 }
 
+.block3 {
+  grid-area: block3;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
 .block1 {
   grid-area: block1;
+  background-color: #aaa;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.block4 {
+  grid-area: block4;
+  background-color: #aaa;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.block5 {
+  grid-area: block5;
+  background-color: #aaa;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.block6 {
+  grid-area: block6;
   background-color: #aaa;
   max-height: 600px;
   overflow: hidden;
@@ -93,19 +132,28 @@ input[type="text"] {
   width: 100%;
   display: grid;
   grid-template-columns: auto 60% auto;
-  grid-template-rows: 25px auto auto auto auto;
+  grid-template-rows: 25px auto auto auto auto auto;
   gap: 0px 0px;
   grid-template-areas:
     "header header header"
     "left middle right"
     "block1 block1 block1"
     "block2 block2 block2"
+    "block3 block3 block3"
+    "block4 block4 block4"
+    "block5 block5 block5"
+    "block6 block6 block6"
     "footer footer footer";
 }
 
 .left,
 .middle,
 .block1,
+.block2,
+.block3,
+.block4,
+.block5,
+.block6,
 .right {
   padding: 10px;
 }
@@ -153,6 +201,7 @@ input[type="text"] {
       "middle left right"
       "block1 block1 block1"
       "block2 block2 block2"
+      "block3 block3 block3"
       "footer footer footer";
   }
 

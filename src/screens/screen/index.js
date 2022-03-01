@@ -7,12 +7,24 @@ import { useGraphQL } from "../../api/useGraphQL";
 import Navigation from "../../components/navigation";
 import Entity from "../../components/entity";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Screen(props) {
   let n = 1;
 
-  const { data, errors } = useGraphQL(screenQuery(props.name));
+  let { path } = useParams();
+
+  /*if(props.name === 'screen' && path) 
+    path = path.substring(0, path.length)
+  else
+    path = 'home';*/
+
+  
+  
+  
+  console.log(path || 'home');
+
+  const { data, errors } = useGraphQL(screenQuery(path || 'home'));
 
   const [hasFetched, setHasFetched] = useState(false);
 
@@ -49,11 +61,6 @@ export default function Screen(props) {
             name="fulltext"
             placeholder="Search"
             role="combobox"
-            aria-autocomplete="list"
-            aria-haspopup="true"
-            aria-invalid="false"
-            aria-expanded="false"
-            aria-owns="cmp-search-results-0"
           />
         </div>
 

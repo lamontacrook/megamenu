@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import Buffer from 'buffer';
+
 const { AEMHeadless } = require('@adobe/aem-headless-client-js')
 
 

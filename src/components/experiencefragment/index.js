@@ -11,15 +11,28 @@ export default class XF extends React.Component {
     }
 
     componentDidMount() {
+        let headers = new Headers();
+        headers.append('Authorization', 'Basic ' + btoa(process.env.REACT_APP_AUTHORIZATION));
+        var obj = {
+            method: 'GET' ,
+            headers: {
+                'Access-Control-Request-Headers': 'Authorization',
+                'Authorization': 'Basic ' + btoa(process.env.REACT_APP_AUTHORIZATION),
+                'Content-Type': 'text/plain',
+                'Origin': ''
+            },
+            credentials: 'include'
+          };
+console.log(obj);
 
-        fetch(this.props.content.experienceFragment._publishUrl, { mode: 'no-cors' })
+        fetch(this.props.content.experienceFragment._authorUrl, obj)
             .then(res  => {
-                    console.log(res);
+                res.text().then(response => { console.log(response);
                     this.setState({
                         isLoaded: true,
-                        items: res
+                        items: response
                     });
-                },
+                })},
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
@@ -41,9 +54,8 @@ export default class XF extends React.Component {
             return <div>Loading...</div>;
         } else {
             return (
-                <span>
-                    <h1>{this.props.content.name}</h1>
-                    <iframe src={this.props.content.experienceFragment._publishUrl}></iframe>
+                <span dangerouslySetInnerHTML={{__html: items}} >
+                    
                 </span>
             );
         }

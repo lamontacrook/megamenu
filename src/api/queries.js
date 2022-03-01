@@ -10,7 +10,7 @@ export const navigationListQuery = `{
             categoryName
             category {
               linkName
-              linkURL
+              linkurl
               isBold
             }
           }
@@ -36,19 +36,12 @@ export function screenQuery(name) {
         ... on TopModel {
           menuItems {
             menuName
+            menuLink
             items {
               __typename
               ... on LinksModel {
-                linkURL
+                linkurl
                 linkName
-              }
-              ... on CategoryListModel {
-                categoryName
-                category {
-                  linkName
-                  linkURL
-                  isBold
-                }
               }
             }
           }
@@ -85,7 +78,7 @@ export function screenQuery(name) {
           experienceFragment {
             ... on PageRef { 
               _publishUrl
-            
+              _authorUrl
             }
           }
         }

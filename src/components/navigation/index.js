@@ -3,7 +3,8 @@ import ErrorScreen from "../Error";
 
 import Image from "../image";
 
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { NavLink, Navbar, Nav, Container } from "react-bootstrap";
+
 
 export default function Navigation(props) {
   return (
@@ -19,13 +20,7 @@ export default function Navigation(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {props.content.navigation.menuItems.map((item) => (
-              <NavDropdown key={item.menuName} title={item.menuName} id="basic-nav-dropdown">
-                {item.items.map((links) => (
-                  <NavDropdown.Item key={links.linkName} href={links.linkURL}>
-                    {links.linkName}
-                  </NavDropdown.Item>
-                ))}
-              </NavDropdown>
+              <NavLink key={item.menuName.toLowerCase()} href={"#/" + item.menuLink}>{item.menuName}</NavLink>         
             ))}
           </Nav>
         </Navbar.Collapse>
