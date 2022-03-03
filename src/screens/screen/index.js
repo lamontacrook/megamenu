@@ -14,16 +14,6 @@ export default function Screen(props) {
 
   let { path } = useParams();
 
-  /*if(props.name === 'screen' && path) 
-    path = path.substring(0, path.length)
-  else
-    path = 'home';*/
-
-  
-  
-  
-  console.log(path || 'home');
-
   const { data, errors } = useGraphQL(screenQuery(path || 'home'));
 
   const [hasFetched, setHasFetched] = useState(false);

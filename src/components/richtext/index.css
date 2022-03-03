@@ -1,0 +1,15 @@
+.underline {
+    position: relative;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+    height: 450px;
+  }
+
+  .underline:after {
+    display: block;
+    width: 84px;
+    padding-top: 8px;
+    content: "";
+    border-bottom: 2px solid #ffea00;
+  }

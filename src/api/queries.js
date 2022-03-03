@@ -54,6 +54,9 @@ export function screenQuery(name) {
             _path
             title
           }
+          teaserPreTitle
+          teaserCallToAction
+          teaserLink
           teaserImage {
             ... on ImageRef {
               _authorUrl
@@ -81,6 +84,15 @@ export function screenQuery(name) {
               _authorUrl
             }
           }
+        }
+        ... on RichTextModel {
+          _model {
+            title
+          }
+          content {
+            html
+          }
+          entityType
         }
       }
     }

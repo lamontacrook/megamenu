@@ -8,7 +8,7 @@ const { AEMHeadless } = require('@adobe/aem-headless-client-js')
 const {
   REACT_APP_PUBLIC_URI,
   REACT_APP_GRAPHQL_ENDPOINT,
-  REACT_APP_AUTHORIZATION
+  REACT_APP_TOKEN
 } = process.env;
 
 /**
@@ -24,7 +24,7 @@ export function useGraphQL(query, path) {
     const sdk = new AEMHeadless({
       serviceURL: REACT_APP_PUBLIC_URI,
       endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-      auth: REACT_APP_AUTHORIZATION.split(":"),
+      auth: REACT_APP_TOKEN,
     })
     const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 

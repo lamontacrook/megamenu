@@ -1,8 +1,24 @@
 import React from "react";
+import Img from "@renditions/react-img";
 
-export default function Image(props) {
-    return (
-        <img alt="example" src={props.props._publishUrl} />
-    );
+const Image = (props) => {
+  const renditions = [
+      { width: 319 }, 
+      { width: 1280 }
+    ];
+console.log(props);
+  const getSrc = (filename, ext, rendition) => {
+    return `${props.src._publishUrl}/_jcr_content/renditions/cq5dam.web.${rendition.width}.${rendition.width}.${ext}`;
+  };
 
+  return (
+    <Img
+      renditions={renditions}
+      getSrc={getSrc.bind(null, "", "jpeg")}
+      className={props.className}
+    />
+  );
 }
+
+export default Image;
+

@@ -44,7 +44,7 @@
   margin-left: 150px;
   margin-right: 150px;
   margin-top: 20px;
-  height: 450px;
+  height: 500px;
 }
 
 .featured div.floater {
@@ -52,7 +52,7 @@
   width: 40%;
   height: 100%;
   padding: 20px;
-  background-color: #aaa;
+  background-color: #ebebeb;
 }
 
 .featured img.teaser-image {
@@ -76,4 +76,21 @@
   content: "";
   display: table;
   clear: both;
+}
+
+div.preTitle {
+  font-weight: 700;
+}
+
+.featured div.innerContent {
+  padding: 3.5em 2em 2em;
+}
+
+.featured h2 {
+  line-height: 1.5;
+  color: #202020;
+  margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }

@@ -1,28 +1,29 @@
 import React from "react";
 import ErrorScreen from "../Error";
 import "./index.css";
+import Image from "../image";
 
 export default function Teaser(props) {
+
   return (
     <div className={props.content.entityType}>
       <div className="floater">
-        <div>
+        <div className="innerContent">
+          {props.content.teaserPreTitle != null && (<div className="preTitle">{props.content.teaserPreTitle}</div>)}
           <h2>{props.content.teaserTitle}</h2>
+          
           <p
             dangerouslySetInnerHTML={{
               __html: props.content.teaserDescription["html"],
             }}
           />
 
-          <a href="#" className="action-links">
-            View Trips
-          </a>
+          {props.content.teaserCallToAction != null && (
+            <a href="#" className="action-links">{props.content.teaserCallToAction}</a>
+          )}
         </div>
       </div>
-      <img
-        className="teaser-image"
-        src={props.content.teaserImage._publishUrl}
-      />
+      <Image className="teaser-image" src={props.content.teaserImage} />
     </div>
   );
 }

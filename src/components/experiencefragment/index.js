@@ -23,11 +23,12 @@ export default class XF extends React.Component {
             },
             credentials: 'include'
           };
-console.log(obj);
 
-        fetch(this.props.content.experienceFragment._authorUrl, obj)
+        let url = this.props.content.experienceFragment._authorUrl;
+        url = url.substring(0, url.length-4);
+        fetch(url + "model.json", obj)
             .then(res  => {
-                res.text().then(response => { console.log(response);
+                res.text().then(response => { this.handleJSON(response);
                     this.setState({
                         isLoaded: true,
                         items: response
@@ -60,11 +61,10 @@ console.log(obj);
             );
         }
     }
+
+    handleJSON(json) {
+        json = JSON.parse(json)
+        console.log(json[':items']['root'][':items']['container'][':items']['contentfragment']['paragraphs']);
+
+    }
 }
-
-/*export default function XF(props) {
-    return (
-        <h1>{props.content.name}</h1>
-
-    )
-}*/
