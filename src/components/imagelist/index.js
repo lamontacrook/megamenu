@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RichText from "../richtext";
+import Image from "../image"
 
 import "./index.css";
 
@@ -18,12 +18,9 @@ const ImageList = ({ content }) => {
           {content.imageListPromoAssets.map((promo) => (
             <li className="list-item">
               <article>
-                <img src="https://wknd.site/us/en/magazine/guide-la-skateparks/_jcr_content/root/container/container/contentfragment/par2/image_copy.coreimg.60.1600.png/1601512687085/article-01-picture-01.png" />
+                <Image src={promo.promoImage} />
                 <span className="list-item-title">{promo.promoTitle}</span>
-                <span className="list-item-description">
-                  Breaking down the top skate destinations in all of Los
-                  Angeles. You don't want to miss this!
-                </span>
+                <span className="list-item-description">{promo.promoPretitle}</span>
               </article>
             </li>
           ))}

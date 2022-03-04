@@ -23,7 +23,6 @@
 
 .block1 {
   grid-area: block1;
-  background-color: #aaa;
   max-height: 600px;
   overflow: hidden;
   margin: 0px;
@@ -42,7 +41,6 @@
 
 .block5 {
   grid-area: block5;
-  background-color: #aaa;
   max-height: 600px;
   overflow: hidden;
   margin: 0px;
@@ -52,7 +50,6 @@
 
 .block6 {
   grid-area: block6;
-  background-color: #aaa;
   max-height: 600px;
   overflow: hidden;
   margin: 0px;
@@ -164,7 +161,7 @@ input[type="text"] {
 .left {
   grid-area: left;
   background-color: #fff;
-  margin-left: 100px;
+  margin-left: 140px;
   display: flex;
   justify-content: center;
 }
@@ -183,7 +180,7 @@ input[type="text"] {
 .right {
   grid-area: right;
   background-color: #fff;
-  margin-right: 100px;
+  margin-right: 140px;
 }
 
 /* Style the footer */

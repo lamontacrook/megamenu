@@ -1,0 +1,10 @@
+.justify-content-right {
+    position:relative;
+}
+
+.me-auto {
+    position: absolute;
+    right:0;
+    top:5px;
+    padding-right: 10px;
+}

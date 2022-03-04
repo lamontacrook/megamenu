@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorScreen from "../Error";
 
 import Image from "../image";
-
+import "./index.css";
 import { NavLink, Navbar, Nav, Container } from "react-bootstrap";
 
 
@@ -14,7 +14,6 @@ export default function Navigation(props) {
         className="justify-content-right"
         expand="lg"
         variant="light"
-        bg="light"
       >
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
