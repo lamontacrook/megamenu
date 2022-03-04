@@ -60,6 +60,8 @@ export default function Screen(props) {
           </div>
         ))}
 
+        
+
         <div className="footer">
           <p>Footer</p>
         </div>

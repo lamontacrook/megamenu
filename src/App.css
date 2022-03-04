@@ -5,6 +5,7 @@
 .block2 {
   grid-area: block2;
   max-height: 600px;
+  min-height: 100px;
   overflow: hidden;
   margin: 0px;
   padding: 0px;
@@ -32,7 +33,6 @@
 
 .block4 {
   grid-area: block4;
-  background-color: #aaa;
   max-height: 600px;
   overflow: hidden;
   margin: 0px;
@@ -194,11 +194,6 @@ input[type="text"] {
   text-align: center;
 }
 
-/*@media(max-width:3696px) {
-  .grid-container {
-    margin-left:30px;
-  }
-}*/
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {

@@ -94,6 +94,23 @@ export function screenQuery(name) {
           }
           entityType
         }
+        ... on ImageListModel {
+          _model {
+            _path
+            title
+          }
+          imageListPromoAssets {
+            promoTitle
+            promoPretitle
+            promoImage {
+              ... on ImageRef {
+                _publishUrl
+                _authorUrl
+              }
+            }
+            promoContentLink
+          }
+        }
       }
     }
   }
