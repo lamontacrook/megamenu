@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorScreen from "../Error";
+
 import "./index.css";
 import Image from "../image";
 
@@ -19,11 +19,11 @@ export default function Teaser(props) {
           />
 
           {props.content.teaserCallToAction != null && (
-            <a href="#" className="action-links">{props.content.teaserCallToAction}</a>
+            <a href="/" className="action-links">{props.content.teaserCallToAction}</a>
           )}
         </div>
       </div>
-      <Image className="teaser-image" src={props.content.teaserImage} />
+      <Image className="teaser-image" alt={props.content.teaserTitle} src={props.content.teaserImage} />
     </div>
   );
 }

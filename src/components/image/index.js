@@ -6,7 +6,7 @@ const Image = (props) => {
       { name:"thumbnail", width: 319 }, 
       { name:"web", width: 1280 }
     ];
-console.log(props);
+
   const getSrc = (filename, rendition) => {
     const url = props.src._publishUrl.substr(props.src._publishUrl.lastIndexOf('\\') + 1).split('.');
     let ext = url.length > 1? url[url.length-1]:"jpeg";

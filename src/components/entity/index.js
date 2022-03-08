@@ -1,5 +1,4 @@
 import React from "react";
-import ErrorScreen from "../Error";
 import Navigation from "../navigation";
 import Teaser from "../teaser";
 import XF from "../experiencefragment";

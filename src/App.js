@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { HashRouter, Switch, Route, useParams } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Screen from "./screens/screen";
 
 function App() {

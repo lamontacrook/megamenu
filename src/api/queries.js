@@ -1,52 +1,22 @@
-export const navigationListQuery = `{
+export const navigationQuery = `{
   topList {
     items {
       menuItems {
-        _path
-        menuName
-        items {
-          ... on CategoryListModel {
-            _path
-            categoryName
-            category {
-              linkName
-              linkurl
-              isBold
-            }
-          }
+        ... on ScreenModel {
+          screenName
+          _path
         }
-        
       }
     }
   }
 }`;
 
-export function screenQuery(name) {
+export function screenByPath(path) {
+  path = path.replaceAll(":", "/");
+  console.log(path);
   return `{
-  screenList(filter: {
-    screenName: {
-      _expressions: {
-        value: "${name}"
-        _ignoreCase: true
-      }
-    }
-  }) {
-    items {
-      navigation {
-        ... on TopModel {
-          menuItems {
-            menuName
-            menuLink
-            items {
-              __typename
-              ... on LinksModel {
-                linkurl
-                linkName
-              }
-            }
-          }
-        }
-      }
+  screenByPath(_path: "${path}") {
+    item {
       block {
         __typename
         ... on TeaserModel {
@@ -100,6 +70,12 @@ export function screenQuery(name) {
             title
           }
           imageListPromoAssets {
+            promoLink
+            promoScreenReference {
+              ... on ScreenModel {
+                _path
+              }
+            }
             promoTitle
             promoPretitle
             promoImage {
@@ -108,7 +84,92 @@ export function screenQuery(name) {
                 _authorUrl
               }
             }
-            promoContentLink
+          }
+        }
+      }
+    }
+  }
+}`;
+}
+
+export function screenQuery(name) {
+  return `{
+  screenList(filter: {
+    screenName: {
+      _expressions: {
+        value: "${name}"
+        _ignoreCase: true
+      }
+    }
+  }) {
+    items {
+      block {
+        __typename
+        ... on TeaserModel {
+          _model {
+            _path
+            title
+          }
+          teaserPreTitle
+          teaserCallToAction
+          teaserLink
+          teaserImage {
+            ... on ImageRef {
+              _authorUrl
+              _publishUrl
+              width
+              height
+              mimeType
+            }
+          }
+          teaserTitle
+          teaserDescription {
+            html
+            plaintext
+          }
+          entityType
+        }
+        ... on ExperienceFragmentModel {
+          _model {
+            title
+          }
+          name
+          experienceFragment {
+            ... on PageRef { 
+              _publishUrl
+              _authorUrl
+            }
+          }
+        }
+        ... on RichTextModel {
+          _model {
+            title
+          }
+          content {
+            html
+          }
+          entityType
+        }
+        ... on ImageListModel {
+          _model {
+            _path
+            title
+          }
+          imageListPromoAssets {
+            promoLink
+            promoScreenReference {
+              ... on ScreenModel {
+                _path
+              }
+            }
+            promoTitle
+            promoPretitle
+            promoImage {
+              ... on ImageRef {
+                _publishUrl
+                _authorUrl
+              }
+            }
           }
         }
       }

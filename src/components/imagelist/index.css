@@ -5,6 +5,26 @@
   margin-top: 20px;
 }
 
+.list-item a:link {
+  text-decoration: none;
+}
+
+/* visited link */
+.list-item a:visited {
+  color: green;
+}
+
+/* mouse over link */
+.list-item a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.list-item a:active {
+  color: blue;
+}
+
+
 .imagelist div.floater {
   float: left;
   width: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default class XF extends React.Component {
     constructor(props) {
@@ -11,13 +11,12 @@ export default class XF extends React.Component {
     }
 
     componentDidMount() {
-        let headers = new Headers();
-        headers.append('Authorization', 'Basic ' + btoa(process.env.REACT_APP_AUTHORIZATION));
+        
         var obj = {
             method: 'GET' ,
             headers: {
                 'Access-Control-Request-Headers': 'Authorization',
-                'Authorization': 'Basic ' + btoa(process.env.REACT_APP_AUTHORIZATION),
+                'Authorization': 'Bearer ' + process.env.REACT_APP_TOKEN,
                 'Content-Type': 'text/plain',
                 'Origin': ''
             },
