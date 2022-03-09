@@ -61,7 +61,7 @@
   height: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .block2 {
     margin-right: 0px;
     margin-left: 0px;
@@ -69,6 +69,11 @@
 
   .featured div.floater .featured div.teaser-image {
     width: 100%;
+  }
+
+  .featured {
+    margin-left:0px;
+    margin-right:0px;
   }
 }
 

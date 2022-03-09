@@ -15,8 +15,8 @@ export function screenByPath(path) {
   path = path.replaceAll(":", "/");
   console.log(path);
   return `{
-  screenByPath(_path: "${path}") {
-    item {
+  screen: screenByPath(_path: "${path}") {
+    body: item {
       block {
         __typename
         ... on TeaserModel {
@@ -94,7 +94,7 @@ export function screenByPath(path) {
 
 export function screenQuery(name) {
   return `{
-  screenList(filter: {
+    screen: screenList(filter: {
     screenName: {
       _expressions: {
         value: "${name}"
@@ -102,7 +102,7 @@ export function screenQuery(name) {
       }
     }
   }) {
-    items {
+    body: items {
       block {
         __typename
         ... on TeaserModel {

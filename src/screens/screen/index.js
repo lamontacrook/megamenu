@@ -13,10 +13,13 @@ export default function Screen(props) {
   let n = 1;
 
   const { path } = useParams();
- 
-  const request = path && path.startsWith(":content") ? screenByPath(path) : screenQuery(path || "home");
 
-    const { data, errors } = useGraphQL(request);
+  const request =
+    path && path.startsWith(":content")
+      ? screenByPath(path)
+      : screenQuery(path || "home");
+
+  const { data, errors } = useGraphQL(request);
 
   const [hasFetched, setHasFetched] = useState(false);
 
@@ -25,10 +28,12 @@ export default function Screen(props) {
     return <ErrorScreen error={errors} />;
   } else if (!hasFetched && data === null) {
     return <span>What to do here?</span>;
-  } else if (hasFetched && (!data.screenList || !data.screenByPath)) {
+  } else if (hasFetched && !data.screen) {
     return <ErrorScreen error="There was an error with the returned data." />;
   } else if (data != null) {
     if (!hasFetched) setHasFetched(true);
+
+    if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
 
     return (
       <div className="grid-container">
@@ -56,16 +61,15 @@ export default function Screen(props) {
           />
         </div>
 
-        {data.screenList &&
-          data.screenList.items[0].block.map((item) => (
-            <div key={"block" + n} className={"block" + n++}>
-              <Entity
-                key={item.key}
-                type={item._model.title.toLowerCase()}
-                content={item}
-              />
-            </div>
-          ))}
+        {data.screen.body.block.map((item) => (
+          <div key={"block" + n} className={"block" + n++}>
+            <Entity
+              key={item.key}
+              type={item._model.title.toLowerCase()}
+              content={item}
+            />
+          </div>
+        ))}
 
         <div className="footer">
           <p>Footer</p>
