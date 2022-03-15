@@ -1,0 +1,6 @@
+.block1 {
+    grid-area: block1;
+    /*max-width: 1136px;*/
+    margin:auto;
+    /*max-height: fit-content;*/
+}

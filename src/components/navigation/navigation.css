@@ -1,0 +1,28 @@
+
+  .menu-wrap {
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    color: #202020;
+    line-height: 1.5;
+    display: flex;
+    flex: .1 0 auto;
+  }
+
+  .list-item {
+    text-decoration: none;
+    margin-right: 1rem;
+    padding: 10px;
+    color:#202020;
+  }
+
+  .list-item:hover {
+    background-color: #ffea00;
+  }
+
+  @media (max-width: 1024px) {
+    .menu-wrap {
+      display: none;
+    }
+  }
+    
+  

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import ErrorScreen from "../../components/Error";
+import ErrorScreen from "../components/Error";
 
-import { screenQuery, screenByPath } from "../../api/queries";
-import { useGraphQL } from "../../api/useGraphQL";
+import { screenQuery, screenByPath } from "../api/queries";
+import { useGraphQL } from "../api/useGraphQL";
 
-import Navigation from "../../components/navigation";
-import Entity from "../../components/entity";
+import Navigation from "../components/navigation";
+import Entity from "../components/entity";
 
-import { Link, useParams, useRouteMatch } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Screen(props) {
   let n = 1;
@@ -18,11 +18,11 @@ export default function Screen(props) {
     path && path.startsWith(":content")
       ? screenByPath(path)
       : screenQuery(path || "home");
-
+      
   const { data, errors } = useGraphQL(request);
 
   const [hasFetched, setHasFetched] = useState(false);
-
+  
   if (errors != null) {
     setHasFetched(true);
     return <ErrorScreen error={errors} />;
@@ -36,29 +36,14 @@ export default function Screen(props) {
     if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
 
     return (
-      <div className="grid-container">
-        <div className="header">test</div>
-        <div className="left row2">
-          <Link to="/">
-            <img
-              src="https://wknd.site/content/experience-fragments/wknd/language-masters/en/site/header/master/_jcr_content/root/container/container_1195249223/image.coreimg.svg/1594412560447/wknd-logo-dk.svg"
-              alt="logo"
-              width="96"
-            />
-          </Link>
-        </div>
-        <div className="middle row2">
-          <Navigation />
-        </div>
+      <React.Fragment>
+        <div className="login">ff</div>
+        <div className="main-container">
+          {getLogo()}
 
-        <div className="right row2">
-          <input
-            className="search"
-            data-cmp-hook-search="input"
-            type="text"
-            name="fulltext"
-            placeholder="Search"
-          />
+          <Navigation />
+
+          {getSearch()}
         </div>
 
         {data.screen.body.block.map((item) => (
@@ -70,10 +55,29 @@ export default function Screen(props) {
             />
           </div>
         ))}
+      </React.Fragment>
+    );
+  }
 
-        <div className="footer">
-          <p>Footer</p>
-        </div>
+  function getSearch() {
+    return (
+      <form>
+        <input type="search" placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
+    );
+  }
+
+  function getLogo() {
+    return (
+      <div className="logo">
+        <Link to="/">
+          <img
+            src="https://wknd.site/content/experience-fragments/wknd/language-masters/en/site/header/master/_jcr_content/root/container/container_1195249223/image.coreimg.svg/1594412560447/wknd-logo-dk.svg"
+            alt="logo"
+            width="136"
+          />
+        </Link>
       </div>
     );
   }

@@ -13,7 +13,6 @@ export const navigationQuery = `{
 
 export function screenByPath(path) {
   path = path.replaceAll(":", "/");
-  console.log(path);
   return `{
   screen: screenByPath(_path: "${path}") {
     body: item {

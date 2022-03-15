@@ -6,10 +6,12 @@ const ContentFragment = ({ content }) => {
   console.log(content.contentfragment);
   let n = 1;
   return (
-    <div>
+    <div className="xf-body">
+      <img src="https://wknd.site/us/en/magazine/arctic-surfing/_jcr_content/root/container/image.coreimg.60.1600.jpeg/1594310091492/surfer-back-from-the-ocean.jpeg"/>
       <h3>{content.contentfragment.title}</h3>
 
       {content.contentfragment.paragraphs.map((p) => (
+        
         <article>
           <span dangerouslySetInnerHTML={{ __html: p }} />
 

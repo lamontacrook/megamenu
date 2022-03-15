@@ -11,7 +11,7 @@
 
 /* visited link */
 .list-item a:visited {
-  color: green;
+  color: #202020
 }
 
 /* mouse over link */

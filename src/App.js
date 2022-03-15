@@ -1,17 +1,18 @@
 import "./App.css";
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import Screen from "./screens/screen";
+import Screen from "./screen";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
     <HashRouter>
       <Switch>
         <Route path={"/:path"}>
-          <Screen />
+          <ErrorBoundary><Screen /></ErrorBoundary>
         </Route>
         <Route path="/">
-          <Screen />
+        <ErrorBoundary><Screen /></ErrorBoundary>
         </Route>
       </Switch>
     </HashRouter>

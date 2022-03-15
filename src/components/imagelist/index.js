@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "../image"
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./index.css";
 

@@ -1,6 +1,8 @@
 import React from "react";
 import ContentFragment from "../contentfragment";
 import ErrorBoundary from "../ErrorBoundary";
+import "./index.css";
+
 export default class XF extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ export default class XF extends React.Component {
       method: "GET",
       headers: {
         "Access-Control-Request-Headers": "Authorization",
-        Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
+        Authorization: "Basic " + btoa(process.env.REACT_APP_AUTHORIZATION), //"Bearer " + process.env.REACT_APP_TOKEN,
         "Content-Type": "text/plain",
         Origin: "",
       },
@@ -65,7 +67,6 @@ export default class XF extends React.Component {
       if (obj.hasOwnProperty(property)) {
         if (typeof obj[property] == "object") {
           this.iterate(obj[property], stack + "." + property);
-          //if (property === "contentfragment") console.log("here");
           if (property === "contentfragment") {
             this.cf = obj;
             return;

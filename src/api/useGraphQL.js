@@ -25,16 +25,17 @@ export function useGraphQL(query, path) {
     const sdk = new AEMHeadless({
       serviceURL: REACT_APP_PUBLIC_URI,
       endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-      auth: REACT_APP_TOKEN //REACT_APP_AUTHORIZATION.split(":"),
+      auth: REACT_APP_AUTHORIZATION.split(":"),
     })
     const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
     request(query || path)
-      .then(({ data, errors }) => {
+      .then(({ data, errors }) => {  
         if (errors) setErrors(mapErrors(errors));
         if (data) setData(data);
       })
       .catch((error) => {
+        console.log(error);
         setErrors(error);
       });
   }, [query, path]);
