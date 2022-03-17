@@ -20,9 +20,9 @@ const Navigation = ({ content }) => {
     if (!hasFetched) setHasFetched(true);
 
     return (
-      <div class="menu-wrap">
+      <div className="menu-wrap">
         {data.topList.items[0].menuItems.map((item) => (
-          <a
+          <a key={item.screenName}
             href={"#/" + item._path.split("/").slice(-1)}
             className="list-item"
           >{item.screenName}</a>

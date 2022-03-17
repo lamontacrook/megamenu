@@ -68,6 +68,7 @@ export function screenByPath(path) {
             _path
             title
           }
+          imageListTitle
           imageListPromoAssets {
             promoLink
             promoScreenReference {
@@ -92,87 +93,98 @@ export function screenByPath(path) {
 }
 
 export function screenQuery(name) {
+  name = name.replaceAll("-", " ");
   return `{
-    screen: screenList(filter: {
-    screenName: {
-      _expressions: {
-        value: "${name}"
-        _ignoreCase: true
-      }
-    }
-  }) {
-    body: items {
-      block {
-        __typename
-        ... on TeaserModel {
-          _model {
-            _path
-            title
-          }
-          teaserPreTitle
-          teaserCallToAction
-          teaserLink
-          teaserImage {
-            ... on ImageRef {
-              _authorUrl
-              _publishUrl
-              width
-              height
-              mimeType
+    screen: screenList(
+      filter: {screenName: {_expressions: {value: "${name}", _ignoreCase: true}}}
+    ) {
+      body: items {
+        block {
+          __typename
+          ... on TeaserModel {
+            _model {
+              _path
+              title
             }
-          }
-          teaserTitle
-          teaserDescription {
-            html
-            plaintext
-          }
-          entityType
-        }
-        ... on ExperienceFragmentModel {
-          _model {
-            title
-          }
-          name
-          experienceFragment {
-            ... on PageRef { 
-              _publishUrl
-              _authorUrl
-            }
-          }
-        }
-        ... on RichTextModel {
-          _model {
-            title
-          }
-          content {
-            html
-          }
-          entityType
-        }
-        ... on ImageListModel {
-          _model {
-            _path
-            title
-          }
-          imageListPromoAssets {
-            promoLink
-            promoScreenReference {
-              ... on ScreenModel {
-                _path
+            teaserPreTitle
+            teaserCallToAction
+            teaserLink
+            teaserImage {
+              ... on ImageRef {
+                _authorUrl
+                _publishUrl
+                width
+                height
+                mimeType
               }
             }
-            promoTitle
-            promoPretitle
-            promoImage {
-              ... on ImageRef {
+            teaserTitle
+            teaserDescription {
+              html
+              plaintext
+            }
+            entityType
+          }
+          ... on ExperienceFragmentModel {
+            _model {
+              title
+            }
+            name
+            experienceFragment {
+              ... on PageRef {
                 _publishUrl
                 _authorUrl
               }
             }
           }
+          ... on RichTextModel {
+            _model {
+              title
+            }
+            content {
+              html
+            }
+            entityType
+          }
+          ... on ImageListModel {
+            _model {
+              _path
+              title
+            }
+            imageListPromoAssets {
+              ... on PromoContentModel {
+                promoLink
+                promoScreenReference {
+                  ... on ScreenModel {
+                    _path
+                  }
+                }
+                promoTitle
+                promoDescription {
+                  plaintext
+                }
+                promoImage {
+                  ... on ImageRef {
+                    _publishUrl
+                    _authorUrl
+                  }
+                }
+              }
+              ... on WkndGqlAdventureModel {
+                promoTitle: adventureTitle
+                promoDescription: adventureDescription {
+                  plaintext
+                }
+                promoImage: adventurePrimaryImage {
+                  ... on ImageRef {
+                    _publishUrl
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-  }
-}`;
+  }`;
 }

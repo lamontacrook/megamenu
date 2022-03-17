@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./index.css";
+import "./teaser.css";
 import Image from "../image";
 
 const Teaser = ({ content }) => {
@@ -8,7 +8,7 @@ const Teaser = ({ content }) => {
   return (
     <div className={content.entityType}>
       <div className="floater">
-        <div className="innerContent">
+        <div className="inner-content">
           {content.teaserPreTitle != null && (<div className="preTitle">{content.teaserPreTitle}</div>)}
           <h2>{content.teaserTitle}</h2>
           

@@ -7,9 +7,10 @@ import { useGraphQL } from "../api/useGraphQL";
 import Navigation from "../components/navigation";
 import Entity from "../components/entity";
 
+import { FaBars } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 
-export default function Screen(props) {
+const Screen = () => {
   let n = 1;
 
   const { path } = useParams();
@@ -18,11 +19,11 @@ export default function Screen(props) {
     path && path.startsWith(":content")
       ? screenByPath(path)
       : screenQuery(path || "home");
-      
+
   const { data, errors } = useGraphQL(request);
 
   const [hasFetched, setHasFetched] = useState(false);
-  
+
   if (errors != null) {
     setHasFetched(true);
     return <ErrorScreen error={errors} />;
@@ -39,6 +40,7 @@ export default function Screen(props) {
       <React.Fragment>
         <div className="login">ff</div>
         <div className="main-container">
+          <FaBars size={45} className="hamburger" />
           {getLogo()}
 
           <Navigation />
@@ -46,15 +48,17 @@ export default function Screen(props) {
           {getSearch()}
         </div>
 
-        {data.screen.body.block.map((item) => (
-          <div key={"block" + n} className={"block" + n++}>
-            <Entity
-              key={item.key}
-              type={item._model.title.toLowerCase()}
-              content={item}
-            />
-          </div>
-        ))}
+        <div className="main-body">
+          {data.screen.body.block.map((item) => (
+            <div key={item.type + "_block"} className="block">
+              <Entity
+                key={item.type + "_entity"}
+                type={item._model.title.toLowerCase()}
+                content={item}
+              />
+            </div>
+          ))}
+        </div>
       </React.Fragment>
     );
   }
@@ -81,4 +85,6 @@ export default function Screen(props) {
       </div>
     );
   }
-}
+};
+
+export default Screen;

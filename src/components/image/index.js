@@ -10,7 +10,7 @@ const Image = (props) => {
   const getSrc = (filename, rendition) => {
     const url = props.src._publishUrl.substr(props.src._publishUrl.lastIndexOf('\\') + 1).split('.');
     let ext = url.length > 1? url[url.length-1]:"jpeg";
-    if(ext === "JPG") ext = "jpeg";
+    if(ext === "JPG" || ext === "jpg") ext = "jpeg";
     return `${props.src._publishUrl}/_jcr_content/renditions/cq5dam.${rendition.name}.${rendition.width}.${rendition.width}.${ext}`;
   };
 

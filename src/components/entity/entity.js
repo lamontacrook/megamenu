@@ -3,7 +3,7 @@ import Navigation from "../navigation";
 import Teaser from "../teaser";
 import XF from "../experiencefragment";
 import RichText from "../richtext";
-import ImageList from "../imagelist";
+import ImageList from "../imagelist/imagelist";
 
 const Entity = ({ type, content }) => {
   if (type === "navigation")

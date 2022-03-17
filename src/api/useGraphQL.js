@@ -8,7 +8,6 @@ const { AEMHeadless } = require('@adobe/aem-headless-client-js')
 const {
   REACT_APP_PUBLIC_URI,
   REACT_APP_GRAPHQL_ENDPOINT,
-  REACT_APP_AUTHORIZATION,
   REACT_APP_TOKEN
 } = process.env;
 
@@ -17,7 +16,7 @@ const {
  * @param query - GraphQL query
  * @param path - Persistent query path
  */
-export function useGraphQL(query, path) {
+export function useGraphQL(query) {
   let [data, setData] = useState(null);
   let [errors, setErrors] = useState(null);
 
@@ -25,12 +24,13 @@ export function useGraphQL(query, path) {
     const sdk = new AEMHeadless({
       serviceURL: REACT_APP_PUBLIC_URI,
       endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-      auth: REACT_APP_AUTHORIZATION.split(":"),
+      auth: REACT_APP_TOKEN
     })
     const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
-
-    request(query || path)
-      .then(({ data, errors }) => {  
+    console.log(process.env);
+    request(query)
+      .then(({ data, errors }) => { 
+        
         if (errors) setErrors(mapErrors(errors));
         if (data) setData(data);
       })
@@ -38,7 +38,7 @@ export function useGraphQL(query, path) {
         console.log(error);
         setErrors(error);
       });
-  }, [query, path]);
+  }, [query]);
 
   return { data, errors }
 }

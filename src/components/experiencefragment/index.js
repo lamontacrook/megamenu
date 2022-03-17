@@ -19,7 +19,7 @@ export default class XF extends React.Component {
       method: "GET",
       headers: {
         "Access-Control-Request-Headers": "Authorization",
-        Authorization: "Basic " + btoa(process.env.REACT_APP_AUTHORIZATION), //"Bearer " + process.env.REACT_APP_TOKEN,
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
         "Content-Type": "text/plain",
         Origin: "",
       },

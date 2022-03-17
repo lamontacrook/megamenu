@@ -1,38 +1,77 @@
 .hero {
   margin: -10px -10px 0 -10px;
+  display: flex;
+  flex-direction: column-reverse;
 }
+
 .hero img.teaser-image {
-  object-fit: cover;
+  object-fit:cover;
   width: 100%;
 }
 
-.hero div.floater {
+.hero > div.floater {
   position: absolute;
   bottom: 0px;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+  /*padding-left: 20px;
+  padding-right: 20px;*/
   text-align: center;
-  width: 100%;
+  width: 70%;
   min-height: 180px;
   align-content: center;
+  background-color: #fff;
+  
+  align-self: center;
 }
 
-@media (max-width: 600px) {
+.hero > .floater > div {
+  text-align: left;
+  padding: 25px;
 }
 
-.hero div.floater div {
+.inner-content > a.action-links {
+  background-color: #ffea00;
+  text-decoration: none;
+  color: currentColor;
+  padding: 12px;
+  margin-top: 15px;
+}
+
+.featured {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1136px;
+  height: 495px;
+  
+  margin: 0 auto;
+}
+
+.featured > img.teaser-image {
+  overflow: hidden;
+  object-fit: cover;
+  
+}
+
+.featured > .floater {
+  width: 35%;
+  background-color: #ebebeb;
+}
+
+.featured > .floater > div {
+  margin: 25px;
+}
+/*.hero div.floater div {
   position: absolute;
   z-index: 999;
   margin: 0 auto;
   left: 0;
   right: 0;
   text-align: left;
-  bottom: 0; /* Adjust this value to move the positioned div up and down */
+  bottom: 0; 
   background: #fff;
   font-family: Arial, sans-serif;
   color: #000;
-  width: 70%; /* Set the width of the positioned div */
+  width: 70%; 
   height: 100%;
   padding-left: 28px;
   padding-right: 28px;
@@ -61,13 +100,13 @@
   height: 100%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
   .block2 {
     margin-right: 0px;
     margin-left: 0px;
   }
 
-  .featured div.floater .featured div.teaser-image {
+  div.floater .featured div.teaser-image {
     width: 100%;
   }
 
@@ -98,4 +137,4 @@ div.preTitle {
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-}
+}**/

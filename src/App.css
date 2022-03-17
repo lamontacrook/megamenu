@@ -20,30 +20,36 @@ body {
   padding: 0px;
   text-align: center;
   font-size: 12px;
-  vertical-align: aside, middle, aside;
-}
-
-.block1 {
-  grid-area: block1;
-  max-height:600px;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
 }
 
 .main-container {
-  max-width: 850pt;
+  max-width: 1023px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  height:194px;
   justify-content: space-between;
+}
+.main-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+.block {
+  display: flex;
+  max-height:600px;
+  overflow: hidden;
+  margin: 0 0 50px 0;
+  padding: 0px;
+  position: relative;
+  align-items: center;
 }
 
 .logo {
   flex:  4 0 auto;
+  align-self: center;
 }
 form {
   color: #555;
@@ -73,7 +79,7 @@ input[type="search"]::placeholder {
 button[type="submit"] {
   text-indent: -999px;
   overflow: hidden;
-  width: 20px;
+  width: 16px;
   padding: 0;
   margin: 0;
   border: 1px solid transparent;
@@ -96,12 +102,25 @@ input[type="search"]:focus {
   outline: none;
 }
 
-.wknd-icon {
-  font-family: wknd-icon-font!important;
-    speak: none;
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+.hamburger {
+  display: none;
+  align-self: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .hamburger {
+    display:flex;
+    padding: 10px;
+  }
+
+  .menu-wrap {
+    display: none;
+  }
+
+  .main-container {
+    height:117px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
 }
