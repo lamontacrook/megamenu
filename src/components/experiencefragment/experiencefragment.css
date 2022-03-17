@@ -1,0 +1,12 @@
+.xf-body {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1136px;
+  overflow: hidden;
+}
+
+.xf-body img {
+  object-fit: cover;
+}

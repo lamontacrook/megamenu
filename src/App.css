@@ -39,7 +39,7 @@ body {
 
 .block {
   display: flex;
-  max-height:600px;
+  /*max-height:600px;*/
   overflow: hidden;
   margin: 0 0 50px 0;
   padding: 0px;
@@ -105,6 +105,16 @@ input[type="search"]:focus {
 .hamburger {
   display: none;
   align-self: center;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1024px) {

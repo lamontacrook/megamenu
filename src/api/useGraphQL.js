@@ -35,7 +35,6 @@ export function useGraphQL(query) {
         if (data) setData(data);
       })
       .catch((error) => {
-        console.log(error);
         setErrors(error);
       });
   }, [query]);

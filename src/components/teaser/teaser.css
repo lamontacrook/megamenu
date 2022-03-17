@@ -2,6 +2,7 @@
   margin: -10px -10px 0 -10px;
   display: flex;
   flex-direction: column-reverse;
+  max-height: 600px;
 }
 
 .hero img.teaser-image {
