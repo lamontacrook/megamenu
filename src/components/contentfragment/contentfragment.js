@@ -1,6 +1,5 @@
-import Breadcrumb from "../breadcrumb";
 import React from "react";
-import Image from "../image/image";
+
 import "./contentfragment.css";
 
 const ContentFragment = ({ content }) => {
@@ -8,24 +7,23 @@ const ContentFragment = ({ content }) => {
 
   return (
     <React.Fragment>
-      <Image src="https://wknd.site/us/en/magazine/arctic-surfing/_jcr_content/root/container/image.coreimg.60.1600.jpeg/1594310091492/surfer-back-from-the-ocean.jpeg" />
-
-      <Breadcrumb     />
       <div className="cf-fragement-body">
       <article className="article-body">
       <h1>{content.contentfragment.title}</h1>
 
       {content.contentfragment.paragraphs.map((p) => (
         <React.Fragment>
-          <span dangerouslySetInnerHTML={{ __html: p }} />
+          <span id="cf-fragment" dangerouslySetInnerHTML={{ __html: p }} />
 
-          <span
-            dangerouslySetInnerHTML={{
-              __html: blockquote(
-                content.contentfragment[":items"]["par" + n]
-              ),
-            }}
-          />
+          {content.contentfragment[":items"]["par" + n] && typeof content.contentfragment[":items"]["par" + n] != "object" && <span id="blockquote"
+                      dangerouslySetInnerHTML={{
+                        __html: blockquote(
+                          content.contentfragment[":items"]["par" + n]
+                        ),
+                      }}
+                    />
+         
+          }
 
           {content.contentfragment[":items"]["par" + n] && (
             <img
@@ -60,12 +58,4 @@ const image = (par) => {
 
 export default ContentFragment;
 
-    function breadcrumb({}) {
-      return (<nav className="breadcrumb">
-        <ol className="breadcrumb-list">
-          <li className="breadcrumb-list-item">Magazine</li>
-          <li className="breakcrumb-list-item">Artic Surfing</li>
-        </ol>
-      </nav>);
-    }
   

@@ -10,8 +10,9 @@ import Entity from "../components/entity";
 import { FaBars } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 
+import Teaser from "../components/teaser/teaser";
+
 const Screen = () => {
-  let n = 1;
 
   const { path } = useParams();
 
@@ -35,10 +36,11 @@ const Screen = () => {
     if (!hasFetched) setHasFetched(true);
 
     if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
-
+    let i = 0;
+    //https://author-p24020-e217804.adobeaemcloud.com/editor.html/content/dam/megamenu/entities/home/home-screen
     return (
       <React.Fragment>
-        <div className="login">ff</div>
+        <div className="login"><a href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`} target="_blank" rel="noopener noreferrer">Edit Screen Fragment</a></div>
         <div className="main-container">
           <FaBars size={45} className="hamburger" />
           {getLogo()}
@@ -50,10 +52,10 @@ const Screen = () => {
 
         <div className="main-body">
           {data.screen.body.block.map((item) => (
-            <div key={item.type + "_block"} className="block">
+            <div key={`${item._model.title.toLowerCase().replace(" ",  "-")}-block-${item._model._path}-${i}`} className="block">
               <Entity
-                key={item.type + "_entity"}
-                type={item._model.title.toLowerCase()}
+                key={`${item._model.title.toLowerCase().replace(" ",  "-")}-entity-${item._model._path}-${i++}`}
+                type={item.__typename}
                 content={item}
               />
             </div>

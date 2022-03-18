@@ -4,6 +4,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import Screen from "./screen";
 import ErrorBoundary from "./components/ErrorBoundary";
 
+
 function App() {
   return (
     <HashRouter>

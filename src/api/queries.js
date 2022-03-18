@@ -18,6 +18,7 @@ export function screenByPath(path) {
       _path: "${path}"
     ) {
       body: item {
+        _path
         block {
           __typename
           ... on TeaserModel {
@@ -48,7 +49,12 @@ export function screenByPath(path) {
             _model {
               title
             }
-            name
+            xfName
+            xfMainImage {
+              ... on ImageRef {
+                _publishUrl
+              }
+            }
             experienceFragment {
               ... on PageRef {
                 _publishUrl
@@ -105,6 +111,7 @@ export function screenQuery(name) {
       filter: {screenName: {_expressions: {value: "${name}", _ignoreCase: true}}}
     ) {
       body: items {
+        _path
         block {
           __typename
           ... on TeaserModel {
@@ -135,7 +142,7 @@ export function screenQuery(name) {
             _model {
               title
             }
-            name
+            xfName
             experienceFragment {
               ... on PageRef {
                 _publishUrl

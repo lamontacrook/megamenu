@@ -1,22 +1,28 @@
 import React from "react";
-import Navigation from "../navigation";
 import Teaser from "../teaser";
-import XF from "../experiencefragment";
+import ExperienceFragment from "../experiencefragment";
 import RichText from "../richtext";
 import ImageList from "../imagelist/imagelist";
+import ErrorBoundary from "../ErrorBoundary";
+
+export const componentMapping = {
+ ExperienceFragment,
+  RichText,
+  ImageList,
+  Teaser
+}
 
 const Entity = ({ type, content }) => {
-  if (type === "navigation")
-    return <Navigation content={content} />;
-  else if (type === "teaser") 
-    return <Teaser content={content} />;
-  else if (type === "experience fragment")
-    return <XF content={content} />;
-  else if (type === "rich text")
-    return <RichText content={content} />
-  else if (type === "image list")
-    return <ImageList content={content} />
-  else return <p>default</p>;
+    const Component = componentMapping[type.replace("Model","")];
+    console.log(componentMapping);
+    if(typeof Component !== "undefined")
+      return <Component content={content} />
+    else
+      return <p>Whoops!</p>
+}
+
+export const MapTo = (modelName, componentName) => {
+  componentMapping[modelName] = componentName;
 }
 
 export default Entity;

@@ -2,9 +2,10 @@ import React from "react";
 
 import "./teaser.css";
 import Image from "../image";
+import { MapTo, componentMapping } from "../entity/entity";
 
 const Teaser = ({ content }) => {
-
+  componentMapping["Teaser"] = Teaser;
   return (
     <div className={content.entityType}>
       <div className="floater">
