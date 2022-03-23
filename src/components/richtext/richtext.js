@@ -2,6 +2,7 @@ import React from "react";
 
 import "./richtext.css";
 
+
 const RichText = ( {content} ) => {
 
     return (

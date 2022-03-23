@@ -13,17 +13,13 @@ export const componentMapping = {
   Teaser
 }
 
-const Entity = ({ type, content }) => {
+const ModelManager = ({ type, content }) => {
     const Component = componentMapping[type.replace("Model","")];
-    console.log(componentMapping);
     if(typeof Component !== "undefined")
       return <Component content={content} />
     else
       return <p>Whoops!</p>
 }
 
-export const MapTo = (modelName, componentName) => {
-  componentMapping[modelName] = componentName;
-}
 
-export default Entity;
+export default ModelManager;

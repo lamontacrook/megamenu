@@ -165,30 +165,28 @@ export function screenQuery(name) {
               title
             }
             imageListPromoAssets {
-              ... on PromoContentModel {
-                promoLink
-                promoScreenReference {
-                  ... on ScreenModel {
-                    _path
-                  }
-                }
-                promoTitle
-                promoDescription {
-                  plaintext
-                }
-                promoImage {
-                  ... on ImageRef {
-                    _publishUrl
-                    _authorUrl
-                  }
-                }
-              }
               ... on WkndGqlAdventureModel {
                 promoTitle: adventureTitle
                 promoDescription: adventureDescription {
                   plaintext
                 }
                 promoImage: adventurePrimaryImage {
+                  ... on ImageRef {
+                    _publishUrl
+                  }
+                }
+              }
+              ...on ExperienceFragmentModel {
+                promoTitle: xfName
+                promoDescription: xfDescription {
+                  plaintext
+                }
+                promoScreenReference: xfScreenReference {
+                  ... on ScreenModel {
+                    _path
+                  }
+                }
+                promoImage: xfMainImage {
                   ... on ImageRef {
                     _publishUrl
                   }

@@ -5,7 +5,8 @@ const setupErrorMessage = `The Adventures, Articles Content Fragment Models are 
 const GlobalEndpointError = `Unexpected token < in JSON at position 0`;
 const globalEndpointMessage = `The global GraphQL endpoint appears to not exist or not be setup.`
 
-export default function ErrorScreen({ error }) {
+export default function ErrorScreen({ error, resetErrorBoundary }) {
+  console.log(error);
   try {
     return (
       <div className="content">
@@ -16,6 +17,9 @@ export default function ErrorScreen({ error }) {
 
         {error === GlobalEndpointError && <span>{globalEndpointMessage}</span>}
         {error === GlobalEndpointError && <a style={styles.a} href="/libs/cq/graphql/sites/admin/content/console.html">Setup Global GraphQL Endpoint</a>}
+
+        <pre>{error.message}</pre>
+        <button onClick={resetErrorBoundary}>Try again</button>
       </div>
     );
   } catch (e) {

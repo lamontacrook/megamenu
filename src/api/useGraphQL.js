@@ -27,10 +27,8 @@ export function useGraphQL(query) {
       auth: REACT_APP_TOKEN
     })
     const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
-    console.log(process.env);
     request(query)
       .then(({ data, errors }) => { 
-        
         if (errors) setErrors(mapErrors(errors));
         if (data) setData(data);
       })

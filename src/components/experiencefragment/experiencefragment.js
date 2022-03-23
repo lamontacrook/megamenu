@@ -1,6 +1,5 @@
 import React from "react";
 
-import ErrorBoundary from "../ErrorBoundary";
 import Image from "../image/image";
 import Breadcrumb from "../breadcrumb";
 
@@ -61,7 +60,7 @@ export default class XF extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <ErrorBoundary>
+      
           <div className="xf-body">
             <Image src={this.props.content.xfMainImage} />
             <Breadcrumb />
@@ -98,7 +97,7 @@ export default class XF extends React.Component {
               </div>
             </div>
           </div>
-        </ErrorBoundary>
+ 
       );
     }
   }
@@ -128,3 +127,4 @@ export default class XF extends React.Component {
     return new XMLSerializer().serializeToString(doc);
   }
 }
+

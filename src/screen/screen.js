@@ -5,15 +5,13 @@ import { screenQuery, screenByPath } from "../api/queries";
 import { useGraphQL } from "../api/useGraphQL";
 
 import Navigation from "../components/navigation";
-import Entity from "../components/entity";
 
 import { FaBars } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-
-import Teaser from "../components/teaser/teaser";
+import ModelManager from "../components/modelmanager";
 
 const Screen = () => {
-
+ 
   const { path } = useParams();
 
   const request =
@@ -27,9 +25,9 @@ const Screen = () => {
 
   if (errors != null) {
     setHasFetched(true);
-    return <ErrorScreen error={errors} />;
+    return <div>here be errors</div>;
   } else if (!hasFetched && data === null) {
-    return <span>What to do here?</span>;
+    return <span>Fetching content</span>;
   } else if (hasFetched && !data.screen) {
     return <ErrorScreen error="There was an error with the returned data." />;
   } else if (data != null) {
@@ -37,10 +35,19 @@ const Screen = () => {
 
     if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
     let i = 0;
-    //https://author-p24020-e217804.adobeaemcloud.com/editor.html/content/dam/megamenu/entities/home/home-screen
+
     return (
       <React.Fragment>
-        <div className="login"><a href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`} target="_blank" rel="noopener noreferrer">Edit Screen Fragment</a></div>
+        <div className="login">
+          <a
+            href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`}
+            target="_blank"
+            className="fragment-editor"
+            rel="noopener noreferrer"
+          >
+            Edit Screen Fragment
+          </a>
+        </div>
         <div className="main-container">
           <FaBars size={45} className="hamburger" />
           {getLogo()}
@@ -52,12 +59,21 @@ const Screen = () => {
 
         <div className="main-body">
           {data.screen.body.block.map((item) => (
-            <div key={`${item._model.title.toLowerCase().replace(" ",  "-")}-block-${item._model._path}-${i}`} className="block">
-              <Entity
-                key={`${item._model.title.toLowerCase().replace(" ",  "-")}-entity-${item._model._path}-${i++}`}
+            <div
+              key={`${item._model.title
+                .toLowerCase()
+                .replace(" ", "-")}-block-${item._model._path}-${i}`}
+              className="block"
+            >
+              <ModelManager
+                key={`${item._model.title
+                  .toLowerCase()
+                  .replace(" ", "-")}-entity-${item._model._path}-${i++}`}
                 type={item.__typename}
                 content={item}
-              />
+              >
+                
+              </ModelManager>
             </div>
           ))}
         </div>

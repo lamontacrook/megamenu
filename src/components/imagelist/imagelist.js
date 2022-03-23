@@ -33,5 +33,5 @@ const ImageList = ({ content }) => {
     </React.Fragment>
   );
 };
-
+//MapTo("ImageListModel", ImageList);
 export default ImageList;
