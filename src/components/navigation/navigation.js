@@ -13,7 +13,7 @@ const Navigation = ({ content }) => {
     setHasFetched(true);
     return <ErrorScreen error={errors} />;
   } else if (!hasFetched && data === null) {
-    return <span>What to do here?</span>;
+    return <span></span>;
   } else if (hasFetched && !data.topList.items) {
     return <ErrorScreen error="There was an error with the returned data." />;
   } else if (data != null) {

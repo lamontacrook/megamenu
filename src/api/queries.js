@@ -11,6 +11,21 @@ export const navigationQuery = `{
   }
 }`;
 
+export  const xfShare = `{
+  experienceFragmentList(filter: {
+    shareThisStory: {
+      _expressions: {
+        value: true
+      }
+    }
+  }) {
+    items {
+      shareThisStory
+      xfName
+    }
+  }
+}`;
+
 export function screenByPath(path) {
   path = path.replaceAll(":", "/");
   return `{
@@ -141,6 +156,12 @@ export function screenQuery(name) {
           ... on ExperienceFragmentModel {
             _model {
               title
+            }
+            xfMainImage {
+              ... on ImageRef {
+                _publishUrl
+                
+              }
             }
             xfName
             experienceFragment {

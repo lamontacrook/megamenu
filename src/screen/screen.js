@@ -14,6 +14,8 @@ const Screen = () => {
  
   const { path } = useParams();
 
+  console.log(path)
+
   const request =
     path && path.startsWith(":content")
       ? screenByPath(path)

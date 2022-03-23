@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Image from "../image/image";
 import Breadcrumb from "../breadcrumb";
 
 import "./experiencefragment.css";
 
-class ExperienceFragment extends React.Component {
-  constructor(props) {
+import { xfShare } from "../../api/queries";
+import { useGraphQL } from "../../api/useGraphQL";
+import ErrorScreen from "../Error";
+
+const XF = () => {
+  /*constructor(props) {
     super(props);
     this.state = {
       error: null,
@@ -14,9 +18,9 @@ class ExperienceFragment extends React.Component {
       items: [],
     };
     this.cf = "";
-  }
+  }*/
 
-  componentDidMount() {
+  useEffect(() => {
     var obj = {
       method: "GET",
       headers: {
@@ -50,7 +54,7 @@ class ExperienceFragment extends React.Component {
         }
       );
     });
-  }
+  });
 
   render() {
     const { error, isLoaded, items } = this.state;
@@ -68,7 +72,7 @@ class ExperienceFragment extends React.Component {
               className="xf-content-body"
               dangerouslySetInnerHTML={{ __html: this.domParser(items) }}
             />
-            {this.SideRail()}
+            {SideRail()}
           </div>
         </div>
       );
@@ -99,21 +103,40 @@ class ExperienceFragment extends React.Component {
 
     return new XMLSerializer().serializeToString(doc);
   }
-
-  SideRail() {
-    <div className="xf-side-rail">
-      <h6>SHARE THIS STORY</h6>
-      <ul className="xf-side-rail-list">
-        <li>
-          <a href="/">
-            <span className="xf-side-rail-list-title">Artic Surfing</span>
-            <span className="xf-side-rail-list-date">Thursday, 9 Jul 2020</span>
-          </a>
-        </li>
-        ;
-      </ul>
-    </div>;
-  }
 }
 
-export default ExperienceFragment;
+const SideRail = () => {
+  const { data, errors } = useGraphQL(xfShare);
+
+  //const [hasFetched, setHasFetched] = useState(false);
+console.log(data);
+  /*if (errors != null) {
+    setHasFetched(true);
+    return <ErrorScreen error={errors} />;
+  } else if (!hasFetched && data === null) {
+    return <span></span>;
+  } else if (hasFetched && !data.shareThisStory.items) {
+    return <ErrorScreen error="There was an error with the returned data." />;
+  } else if (data != null) {
+    if (!hasFetched) setHasFetched(true);
+    return (
+      <div className="xf-side-rail">
+        <h6>SHARE THIS STORY</h6>
+        <ul className="xf-side-rail-list">
+          {data.experienceFragmentList.items.map((item) => {
+            <li>
+              <a href="/">
+                <span className="xf-side-rail-list-title">
+                  {item.xfName}
+                </span>
+                <span className="xf-side-rail-list-date">
+                  Thursday, 9 Jul 2020
+                </span>
+              </a>
+            </li>;
+          })}
+        </ul>
+      </div>
+    );
+  }*/
+};

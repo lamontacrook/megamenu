@@ -1,6 +1,6 @@
 import React from "react";
 import Teaser from "../teaser";
-import ExperienceFragment from "../experiencefragment";
+import ExperienceFragment from "../experiencefragment/experiencefragment";
 import RichText from "../richtext";
 
 import ImageList from "../imagelist";
