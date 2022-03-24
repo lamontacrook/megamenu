@@ -136,6 +136,16 @@ export function screenByPath(path) {
               }
             }
           }
+          ... on AdventureGridModel {
+            _model {
+              _path
+              title
+            }
+            content: gridTitle {
+              plaintext
+              html
+            }
+          }
         }
       }
     }
@@ -260,3 +270,19 @@ export function screenQuery(name) {
     }
   }`;
 }
+
+export const adventureList = `{
+	adventureList {
+    items {
+      adventureTitle
+      adventureDescription {
+        plaintext
+      }
+      adventurePrimaryImage {
+        ... on ImageRef {
+          _publishUrl
+        }
+      }
+    }
+  }
+}`;
