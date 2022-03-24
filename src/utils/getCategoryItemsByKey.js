@@ -1,1 +1,0 @@
-export const getCategoryItemsByKey = (items, activity) => items.filter(item => item.adventureActivity === activity);

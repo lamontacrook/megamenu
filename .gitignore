@@ -25,3 +25,4 @@ yarn-error.log*
 
 *-old
 *copy.js
+.new

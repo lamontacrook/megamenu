@@ -3,6 +3,9 @@ import "./navigation.css";
 import { navigationQuery } from "../../api/queries";
 import { useGraphQL } from "../../api/useGraphQL";
 import ErrorScreen from "../Error";
+import { LinkManager } from "../../utils";
+import { Link } from "react-router-dom";
+
 
 const Navigation = ({ content }) => {
   const { data, errors } = useGraphQL(navigationQuery);
@@ -22,10 +25,7 @@ const Navigation = ({ content }) => {
     return (
       <div className="menu-wrap">
         {data.topList.items[0].menuItems.map((item) => (
-          <a key={item.screenName}
-            href={"#/" + item._path.split("/").slice(-1)}
-            className="list-item"
-          >{item.screenName}</a>
+          <Link key={item.screenName} className="list-item" to={LinkManager(item)}>{item.screenName}</Link>
         ))}
       </div>
     );

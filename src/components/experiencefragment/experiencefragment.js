@@ -4,6 +4,8 @@ import Image from "../image/image";
 import Breadcrumb from "../breadcrumb";
 
 import "./experiencefragment.css";
+import {LinkManager} from "../../utils";
+import {Link} from "react-router-dom";
 
 class ExperienceFragment extends React.Component {
   constructor(props) {
@@ -68,7 +70,7 @@ class ExperienceFragment extends React.Component {
               className="xf-content-body"
               dangerouslySetInnerHTML={{ __html: this.domParser(items) }}
             />
-            {this.SideRail()}
+            {this.SideRail(this.props.content)}
           </div>
         </div>
       );
@@ -100,19 +102,32 @@ class ExperienceFragment extends React.Component {
     return new XMLSerializer().serializeToString(doc);
   }
 
-  SideRail() {
-    <div className="xf-side-rail">
-      <h6>SHARE THIS STORY</h6>
-      <ul className="xf-side-rail-list">
-        <li>
-          <a href="/">
-            <span className="xf-side-rail-list-title">Artic Surfing</span>
-            <span className="xf-side-rail-list-date">Thursday, 9 Jul 2020</span>
-          </a>
-        </li>
-        ;
-      </ul>
-    </div>;
+  SideRail({ xfStorytoShare }) {
+    return xfStorytoShare ? (
+      <div className="xf-side-rail">
+        <h6>SHARE THIS STORY</h6>
+        <ul className="xf-side-rail-list">
+          {xfStorytoShare.map((story) => (
+            <li>
+              <Link
+                to={{
+                  pathname: LinkManager(story),
+                }}
+              replace >
+                <span className="xf-side-rail-list-title">
+                  {story.screenName}
+                </span>
+                <span className="xf-side-rail-list-date">
+                  Thursday, 9 Jul 2020
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : (
+      <h6>Whoops</h6>
+    );
   }
 }
 

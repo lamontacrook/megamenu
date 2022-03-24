@@ -65,6 +65,12 @@ export function screenByPath(path) {
               title
             }
             xfName
+            xfStorytoShare {
+              ... on ScreenModel {
+                screenName
+                _path
+              }
+            }
             xfMainImage {
               ... on ImageRef {
                 _publishUrl
@@ -93,6 +99,23 @@ export function screenByPath(path) {
             }
             imageListTitle
             imageListPromoAssets {
+              ... on ScreenModel {
+                _path
+                block {
+                  ... on ExperienceFragmentModel {
+                    _path
+                    promoTitle: xfName
+                    promoDescription: xfDescription {
+                      plaintext
+                    }
+                    promoImage: xfMainImage {
+                      ... on ImageRef {
+                        _publishUrl
+                      }
+                    }
+                  }
+                }
+              }
               ... on PromoContentModel {
                 promoLink
                 promoScreenReference {
@@ -194,6 +217,23 @@ export function screenQuery(name) {
                 promoImage: adventurePrimaryImage {
                   ... on ImageRef {
                     _publishUrl
+                  }
+                }
+              }
+              ... on ScreenModel {
+                _path
+                block {
+                  ... on ExperienceFragmentModel {
+                    _path
+                    promoTitle: xfName
+                    promoDescription: xfDescription {
+                      plaintext
+                    }
+                    promoImage: xfMainImage {
+                      ... on ImageRef {
+                        _publishUrl
+                      }
+                    }
                   }
                 }
               }

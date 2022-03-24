@@ -20,7 +20,27 @@ const App = () => {
   return (
     <HashRouter>
       <Switch>
-        <Route path={"/:path"}>
+        <Route exact={true} path={"/:screen"}>
+          <ErrorBoundary
+            FallbackComponent={ErrorFallback}
+            onReset={() => {
+              console.log("reset");
+            }}
+          >
+            <Screen />
+          </ErrorBoundary>
+        </Route>
+        <Route exact={true} path={"/:folder/:screen"}>
+          <ErrorBoundary
+            FallbackComponent={ErrorFallback}
+            onReset={() => {
+              console.log("reset");
+            }}
+          >
+            <Screen />
+          </ErrorBoundary>
+        </Route>
+        <Route exact={true} path={"/:parent/:folder/:screen"}>
           <ErrorBoundary
             FallbackComponent={ErrorFallback}
             onReset={() => {

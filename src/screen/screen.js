@@ -9,17 +9,16 @@ import Navigation from "../components/navigation";
 import { FaBars } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import ModelManager from "../components/modelmanager";
+import {ConstructURL} from "../utils";
 
 const Screen = () => {
  
-  const { path } = useParams();
-
-  console.log(path)
+  const props = useParams();
 
   const request =
-    path && path.startsWith(":content")
-      ? screenByPath(path)
-      : screenQuery(path || "home");
+    props && ConstructURL(props)
+      ? screenByPath(ConstructURL(props))
+      : screenQuery("home");
 
   const { data, errors } = useGraphQL(request);
 
