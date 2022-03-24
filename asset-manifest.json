@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wknd-gql/static/css/main.2cb1290d.css",
-    "main.js": "/wknd-gql/static/js/main.b2ee5945.js",
+    "main.js": "/wknd-gql/static/js/main.4061802c.js",
     "static/js/787.c37390c2.chunk.js": "/wknd-gql/static/js/787.c37390c2.chunk.js",
     "index.html": "/wknd-gql/index.html",
     "main.2cb1290d.css.map": "/wknd-gql/static/css/main.2cb1290d.css.map",
-    "main.b2ee5945.js.map": "/wknd-gql/static/js/main.b2ee5945.js.map",
+    "main.4061802c.js.map": "/wknd-gql/static/js/main.4061802c.js.map",
     "787.c37390c2.chunk.js.map": "/wknd-gql/static/js/787.c37390c2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2cb1290d.css",
-    "static/js/main.b2ee5945.js"
+    "static/js/main.4061802c.js"
   ]
 }
