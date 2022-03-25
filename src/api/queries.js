@@ -43,7 +43,11 @@ export function screenByPath(path) {
             }
             teaserPreTitle
             teaserCallToAction
-            teaserLink
+            teaserLink {
+              ... on ScreenModel {
+                _path
+              }
+            }
             teaserImage {
               ... on ImageRef {
                 _authorUrl
@@ -169,7 +173,11 @@ export function screenQuery(name) {
             }
             teaserPreTitle
             teaserCallToAction
-            teaserLink
+            teaserLink {
+              ... on ScreenModel {
+                _path
+              }
+            }
             teaserImage {
               ... on ImageRef {
                 _authorUrl

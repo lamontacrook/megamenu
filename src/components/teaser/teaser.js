@@ -2,6 +2,8 @@ import React from "react";
 
 import "./teaser.css";
 import Image from "../image";
+import { LinkManager } from "../../utils";
+import {Link} from "react-router-dom";
 
 
 const Teaser = ({ content }) => {
@@ -19,7 +21,12 @@ const Teaser = ({ content }) => {
           />
 
           {content.teaserCallToAction != null && (
-            <a href="/" className="action-links">{content.teaserCallToAction}</a>
+             <Link
+             to={{
+               pathname: LinkManager(content.teaserLink)
+                
+             }}
+           >{content.teaserCallToAction}</Link>
           )}
         </div>
       </div>
