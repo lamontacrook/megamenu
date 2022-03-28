@@ -21,15 +21,12 @@ const Teaser = ({ content }) => {
           />
 
           {content.teaserCallToAction != null && (
-             <Link
-             to={{
-               pathname: LinkManager(content.teaserLink)
-                
-             }}
-           >{content.teaserCallToAction}</Link>
+             
+             <a href="/">
+           {content.teaserCallToAction}</a>
           )}
         </div>
-      </div>
+        </div>
       <Image className="teaser-image" alt={content.teaserTitle} src={content.teaserImage} />
     </div>
   );
