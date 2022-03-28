@@ -22,7 +22,7 @@ const Teaser = ({ content }) => {
 
           {content.teaserCallToAction != null && (
              
-             <a href="/" className="action-links">
+             <a href={(content.teaserLink && content.teaserLink._path) || "/"} className="action-links">
            {content.teaserCallToAction}</a>
           )}
         </div>
