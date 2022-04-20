@@ -7,11 +7,20 @@ import { ErrorBoundary } from "react-error-boundary";
 
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => {
+  console.log(error.message);
   return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
+    <div role="alert" className="alert">
+      <form>
+        <h3>Login Here</h3>
+
+        <label for="authorUR">Author URL</label>
+        <input type="text" placeholder="https://author-p24020-e217804.adobeaemcloud.com" id="author-url" />
+
+        <label for="token">Token</label>
+        <input type="multiline" placeholder="Token" id="token" />
+
+        <button onClick={resetErrorBoundary}>Try again</button>
+      </form>
     </div>
   );
 };

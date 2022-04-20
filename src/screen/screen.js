@@ -11,6 +11,9 @@ import { Link, useParams } from "react-router-dom";
 import ModelManager from "../components/modelmanager";
 import {ConstructURL} from "../utils";
 
+import {ProgressCircle} from '@adobe/react-spectrum'
+
+
 const Screen = () => {
  
   const props = useParams();
@@ -28,7 +31,7 @@ const Screen = () => {
     setHasFetched(true);
     return <div>here be errors</div>;
   } else if (!hasFetched && data === null) {
-    return <span>Fetching content</span>;
+    return <ProgressCircle aria-label="Loading…" isIndeterminate />;
   } else if (hasFetched && !data.screen) {
     return <ErrorScreen error="There was an error with the returned data." />;
   } else if (data != null) {
@@ -37,17 +40,19 @@ const Screen = () => {
     if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
     let i = 0;
 
+    console.log(data.screen._references);
+
     return (
       <React.Fragment>
         <div className="login">
-          <a
+        {process.env.NODE_ENV != 'development' || <a
             href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`}
             target="_blank"
             className="fragment-editor"
             rel="noopener noreferrer"
           >
-            Edit Screen Fragment
-          </a>
+            Edit Screen Fragment 
+          </a>} 
         </div>
         <div className="main-container">
           <FaBars size={45} className="hamburger" />
@@ -72,6 +77,7 @@ const Screen = () => {
                   .replace(" ", "-")}-entity-${item._model._path}-${i++}`}
                 type={item.__typename}
                 content={item}
+                references={data.screen._references}
               >
                 
               </ModelManager>

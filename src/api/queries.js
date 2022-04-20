@@ -32,10 +32,33 @@ export function screenByPath(path) {
     screen: screenByPath(
       _path: "${path}"
     ) {
+      _references {
+        ... on ImageRef {
+          _publishUrl
+          _path
+          __typename
+        }
+      }
       body: item {
         _path
         block {
           __typename
+          ... on ArticleModel {
+            _model {
+              _path
+              title
+            }
+            articleBody {
+              html
+              json
+            }
+            articleTitle
+            articleMainImage {
+              ... on ImageRef {
+                _publishUrl
+              }
+            }
+          }
           ... on TeaserModel {
             _model {
               _path
@@ -106,6 +129,18 @@ export function screenByPath(path) {
               ... on ScreenModel {
                 _path
                 block {
+                  ... on ArticleModel {
+                    _path
+                    promoTitle: articleTitle
+                    promoDescription: articleSummary {
+                      plaintext
+                    }
+                    promoImage: articleMainImage {
+                      ... on ImageRef {
+                        _publishUrl
+                      }
+                    }
+                  }
                   ... on ExperienceFragmentModel {
                     _path
                     promoTitle: xfName
@@ -166,6 +201,21 @@ export function screenQuery(name) {
         _path
         block {
           __typename
+          ... on ArticleModel {
+            _model {
+              _path
+              title
+            }
+            articleBody {
+              html
+            }
+            articleTitle
+            articleMainImage {
+              ... on ImageRef {
+                _publishUrl
+              }
+            }
+          }
           ... on TeaserModel {
             _model {
               _path
@@ -241,6 +291,18 @@ export function screenQuery(name) {
               ... on ScreenModel {
                 _path
                 block {
+                  ... on ArticleModel {
+                    _path
+                    promoTitle: articleTitle
+                    promoDescription: articleSummary {
+                      plaintext
+                    }
+                    promoImage: articleMainImage {
+                      ... on ImageRef {
+                        _publishUrl
+                      }
+                    }
+                  }
                   ... on ExperienceFragmentModel {
                     _path
                     promoTitle: xfName

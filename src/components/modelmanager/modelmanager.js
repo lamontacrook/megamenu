@@ -4,6 +4,7 @@ import ExperienceFragment from "../experiencefragment/experiencefragment";
 import RichText from "../richtext";
 import AdventureGrid from "../adventuregrid/adventuregrid";
 import ImageList from "../imagelist";
+import Article from "../article/article";
 
 
 export const componentMapping = {
@@ -11,14 +12,15 @@ export const componentMapping = {
   RichText,
   ImageList,
   Teaser,
-  AdventureGrid
+  AdventureGrid,
+  Article
 }
 
-const ModelManager = ({ type, content }) => {
+const ModelManager = ({ type, content, references }) => {
   console.log(type);
     const Component = componentMapping[type.replace("Model","")];
     if(typeof Component !== "undefined")
-      return <Component content={content} />
+      return <Component content={content} references={references} />
     else
       return <p>Whoops!</p>
 }

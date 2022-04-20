@@ -1,0 +1,19 @@
+.arcticleBoxy {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+
+  width: 100%;
+  max-width: 1136px;
+  overflow: hidden;
+}
+
+.articleBody > article {
+  width: 70%;
+  margin: auto;
+}
+
+.articleBody > article > img {
+    object-fit: scale-down;
+  width: 100%;
+}
