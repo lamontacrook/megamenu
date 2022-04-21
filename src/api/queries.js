@@ -49,13 +49,19 @@ export function screenByPath(path) {
               title
             }
             articleBody {
-              html
               json
+              
             }
             articleTitle
             articleMainImage {
               ... on ImageRef {
                 _publishUrl
+              }
+            }
+            sideRail: articleStory2Share {
+              ... on ScreenModel {
+                _path
+                screenName
               }
             }
           }
@@ -92,7 +98,7 @@ export function screenByPath(path) {
               title
             }
             xfName
-            xfStorytoShare {
+            sideRail: xfStorytoShare {
               ... on ScreenModel {
                 screenName
                 _path
@@ -207,12 +213,19 @@ export function screenQuery(name) {
               title
             }
             articleBody {
-              html
+              json
+              
             }
             articleTitle
             articleMainImage {
               ... on ImageRef {
                 _publishUrl
+              }
+            }
+            sideRail: articleStory2Share {
+              ... on ScreenModel {
+                _path
+                screenName
               }
             }
           }

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Image from "../image/image";
 import Breadcrumb from "../breadcrumb";
 
+import SideRail from "../siderail/siderail";
+
 import "./experiencefragment.css";
 import {LinkManager} from "../../utils";
 import {Link} from "react-router-dom";
@@ -70,7 +72,7 @@ class ExperienceFragment extends React.Component {
               className="xf-content-body"
               dangerouslySetInnerHTML={{ __html: this.domParser(items) }}
             />
-            {this.SideRail(this.props.content)}
+            <SideRail content={this.props.content} />
           </div>
         </div>
       );
@@ -102,7 +104,7 @@ class ExperienceFragment extends React.Component {
     return new XMLSerializer().serializeToString(doc);
   }
 
-  SideRail({ xfStorytoShare }) {
+  /*SideRail({ xfStorytoShare }) {
     return xfStorytoShare ? (
       <div className="xf-side-rail">
         <h6>SHARE THIS STORY</h6>
@@ -128,7 +130,7 @@ class ExperienceFragment extends React.Component {
     ) : (
       <h6>Whoops</h6>
     );
-  }
+  }*/
 }
 
 export default ExperienceFragment;

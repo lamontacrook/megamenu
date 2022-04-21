@@ -1,6 +1,6 @@
-.arcticleBoxy {
+.article-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
 
   width: 100%;
@@ -8,12 +8,102 @@
   overflow: hidden;
 }
 
-.articleBody > article {
+.article-body-content {
+  display: flex;
+  flex-direction: row;
+}
+.article-body > article {
   width: 70%;
   margin: auto;
 }
 
-.articleBody > article > img {
+.article-body > article > img {
     object-fit: scale-down;
   width: 100%;
 }
+
+.article-body > img {
+  padding:20px;
+  margin-left: 0;
+  object-fit: fill;
+}
+
+.article-body article.article-content-body {
+  width: 75%;
+  margin-left: 18px;
+  padding-right: 10px;
+  line-height: 40px;
+}
+.article-body article.article-content-body img {
+  object-fit: scale-down;
+  width: 100%;
+  padding: 0px;
+}
+
+.article-body > article.article-content-body {
+  width: 70%;
+}
+
+.xf-side-rail {
+  width: 30%;
+  padding-top: 20px;
+}
+
+.xf-side-rail h6 {
+  padding-left: 0px;
+  padding-bottom: 20px;
+}
+
+.xf-side-rail > ul.xf-side-rail-list {
+  list-style: none;
+  display: block;
+  padding: 0;
+}
+
+.xf-side-rail-list > li {
+  height: 120px;
+  width: 100%;
+  margin: 0;
+  align-self: start;
+  border-left-style: solid;
+  border-left-color: lightgray;
+  border-left-width: 5px;
+  margin-bottom:20px;
+}
+.xf-side-rail-list > a {
+  color: #202020;
+  padding: 5px;
+  padding-top: 20px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+}
+
+.xf-side-rail-list a:link {
+  text-decoration: none;
+}
+
+.xf-side-rail-list a:visited {
+  text-decoration: none;
+}
+
+.xf-side-rail-list > li:hover {
+  background: #ffea00;
+  border-color: #202020; 
+}
+
+.xf-side-rail-list-title {
+  display: block;
+  color: #202020;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-top:20px;
+}
+
+.xf-side-rail-list-date {
+  color: #696969;
+  font-size: 9pt;
+  padding: 5px;
+  text-transform: uppercase;
+}
+

@@ -45,7 +45,7 @@ const Screen = () => {
     return (
       <React.Fragment>
         <div className="login">
-        {process.env.NODE_ENV != 'development' || <a
+        {process.env.NODE_ENV !== 'development' || <a
             href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`}
             target="_blank"
             className="fragment-editor"

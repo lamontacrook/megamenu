@@ -5,20 +5,24 @@ import { Link } from "react-router-dom";
 import "./article.css";
 import { LinkManager } from "../../utils";
 import { mapJsonRichText } from "./renderRichText";
+import SideRail from "../siderail/siderail";
 
 const Article = ({ content, references }) => {
   console.log(references);
   return (
-    <div className="articleBody">
+    <div className="article-body">
       <Image src={content.articleMainImage._publishUrl} alt="article" />
-      <article>
-        <p>
-          {mapJsonRichText(
-            content.articleBody.json,
-            customRenderOptions(references)
-          )}
-        </p>
-      </article>
+      <div className="article-body-content">
+        <article className="article-content-body">
+          <p>
+            {mapJsonRichText(
+              content.articleBody.json,
+              customRenderOptions(references)
+            )}
+          </p>
+        </article>
+        <SideRail content={content} />
+      </div>
     </div>
   );
 };
