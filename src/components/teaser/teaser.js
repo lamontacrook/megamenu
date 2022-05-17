@@ -21,9 +21,12 @@ const Teaser = ({ content }) => {
           />
 
           {content.teaserCallToAction != null && (
+             <Link
+             to={{
+               pathname: LinkManager(content.teaserLink),
+  
+             }} className="action-links">{content.teaserCallToAction}</Link>
              
-             <a href={(content.teaserLink && content.teaserLink._path) || "/"} className="action-links">
-           {content.teaserCallToAction}</a>
           )}
         </div>
         </div>

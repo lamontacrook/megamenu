@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Image from "../image/image";
 import Breadcrumb from "../breadcrumb";
-
-import SideRail from "../siderail/siderail";
+import SideRail from "../siderail";
 
 import "./experiencefragment.css";
-import {LinkManager} from "../../utils";
-import {Link} from "react-router-dom";
 
 class ExperienceFragment extends React.Component {
   constructor(props) {
@@ -82,16 +79,27 @@ class ExperienceFragment extends React.Component {
   domParser(item) {
     let dom = new DOMParser();
     let doc = dom.parseFromString(item, "text/html");
-
+  
     for (var i in doc.getElementsByTagName("img")) {
       let src = doc.getElementsByTagName("img")[i].src;
+      let srcset = doc.getElementsByTagName("img")[i].srcset;
 
       if (src) {
         src = src.replaceAll(
           document.location.origin,
           process.env.REACT_APP_PUBLISHER
         );
+
         doc.getElementsByTagName("img")[i].src = src;
+      }
+
+      if (srcset) {
+        let srcs = srcset && srcset.split(",");
+        for (var n in srcs) {
+          srcs[n] = process.env.REACT_APP_PUBLISHER + srcs[n];
+          console.log(srcs[n]);
+        }
+        doc.getElementsByTagName("img")[i].srcset = srcs.join(",");
       }
 
       for (i in doc.getElementsByTagName("link"))
@@ -104,33 +112,6 @@ class ExperienceFragment extends React.Component {
     return new XMLSerializer().serializeToString(doc);
   }
 
-  /*SideRail({ xfStorytoShare }) {
-    return xfStorytoShare ? (
-      <div className="xf-side-rail">
-        <h6>SHARE THIS STORY</h6>
-        <ul className="xf-side-rail-list">
-          {xfStorytoShare.map((story) => (
-            <li>
-              <Link
-                to={{
-                  pathname: LinkManager(story),
-                }}
-              replace >
-                <span className="xf-side-rail-list-title">
-                  {story.screenName}
-                </span>
-                <span className="xf-side-rail-list-date">
-                  Thursday, 9 Jul 2020
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ) : (
-      <h6>Whoops</h6>
-    );
-  }*/
 }
 
 export default ExperienceFragment;

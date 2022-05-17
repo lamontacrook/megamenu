@@ -12,7 +12,7 @@ const SideRail = ({ content }) => {
         <h6>SHARE THIS STORY</h6>
         <ul className="xf-side-rail-list">
           {content.sideRail.map((story) => (
-            <li>
+            <li key={story.screenName}>
               <Link
                 to={{
                   pathname: LinkManager(story),

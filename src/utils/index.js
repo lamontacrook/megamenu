@@ -1,6 +1,6 @@
 const RootPath = "/content/dam/megamenu/entities";
-const LinkManager = ({_path}) => {
-    return _path?_path.replace(RootPath, ""):"";
+const LinkManager = (props) => {
+    return props && props._path?props._path.replace(RootPath, ""):"";
 }
 
 const ConstructURL = (props) => {

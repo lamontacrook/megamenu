@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "../image";
 import { Link } from "react-router-dom";
-
-import "./article.css";
-import { LinkManager } from "../../utils";
 import { mapJsonRichText } from "./renderRichText";
 import SideRail from "../siderail/siderail";
+
+import "./article.css";
 
 const Article = ({ content, references }) => {
   console.log(references);

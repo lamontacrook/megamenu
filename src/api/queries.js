@@ -335,11 +335,7 @@ export function screenQuery(name) {
                 promoDescription: xfDescription {
                   plaintext
                 }
-                promoScreenReference: xfScreenReference {
-                  ... on ScreenModel {
-                    _path
-                  }
-                }
+                
                 promoImage: xfMainImage {
                   ... on ImageRef {
                     _publishUrl

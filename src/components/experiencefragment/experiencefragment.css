@@ -96,3 +96,7 @@
   padding: 5px;
   text-transform: uppercase;
 }
+
+.cmp-image__image {
+  height:100%;
+}
