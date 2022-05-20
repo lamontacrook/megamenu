@@ -11,10 +11,10 @@ const Teaser = ({ content }) => {
     <div className={content.entityType}>
       <div className="floater">
         <div className="inner-content">
-          {content.teaserPreTitle != null && (<div className="preTitle">{content.teaserPreTitle}</div>)}
-          <h2>{content.teaserTitle}</h2>
+          {content.teaserPreTitle != null && (<div className="pre-title">{content.teaserPreTitle}</div>)}
+          <h2 className="teaser-title">{content.teaserTitle}</h2>
           
-          <p
+          <div className="teaser-description"
             dangerouslySetInnerHTML={{
               __html: content.teaserDescription["html"],
             }}

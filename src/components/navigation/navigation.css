@@ -11,12 +11,20 @@
 
   .menu-wrap > .list-item {
     text-decoration: none;
-    margin-right: 1rem;
+    
     padding: 10px;
     color:#202020;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 15px 17px;
+    text-decoration: none;
   }
 
   .menu-wrap > .list-item:hover {
+    background-color: #ffea00;
+  }
+
+  .menu-wrap > .list-item:active {
     background-color: #ffea00;
   }
 
