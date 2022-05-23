@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/wknd-gql/static/css/main.9007379e.css",
-    "main.js": "/wknd-gql/static/js/main.3069c444.js",
+    "main.css": "/wknd-gql/static/css/main.3bb017b1.css",
+    "main.js": "/wknd-gql/static/js/main.97e9734d.js",
     "static/js/787.c37390c2.chunk.js": "/wknd-gql/static/js/787.c37390c2.chunk.js",
+    "static/media/wknd-icon-font.ttf": "/wknd-gql/static/media/wknd-icon-font.4437151df2607e98e655.ttf",
     "index.html": "/wknd-gql/index.html",
-    "main.9007379e.css.map": "/wknd-gql/static/css/main.9007379e.css.map",
-    "main.3069c444.js.map": "/wknd-gql/static/js/main.3069c444.js.map",
+    "main.3bb017b1.css.map": "/wknd-gql/static/css/main.3bb017b1.css.map",
+    "main.97e9734d.js.map": "/wknd-gql/static/js/main.97e9734d.js.map",
     "787.c37390c2.chunk.js.map": "/wknd-gql/static/js/787.c37390c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9007379e.css",
-    "static/js/main.3069c444.js"
+    "static/css/main.3bb017b1.css",
+    "static/js/main.97e9734d.js"
   ]
 }
