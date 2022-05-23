@@ -4,14 +4,28 @@ import { useGraphQL } from "../../api/useGraphQL";
 import ErrorScreen from "../Error";
 import Image from "../image/image";
 import Richtext from "../richtext";
+import { Link } from "react-router-dom";
 
 import "./adventuregrid.css";
+import { useParams } from "react-router-dom";
+import { LinkManager } from "../../utils";
 
 const AdventureGrid = ({ content }) => {
-  console.log("in adventure grid");
-  const { data, errors } = useGraphQL(adventureList);
+  
+  const {filter} = useParams();
+
+  const { data, errors } = useGraphQL(adventureList(filter));
 
   const [hasFetched, setHasFetched] = useState(false);
+
+  const tabs = [
+    "All",
+    "Climbing",
+    "Cycling",
+    "Skiing",
+    "Surfing",
+    "Travel"
+  ]
 
   if (errors != null) {
     setHasFetched(true);
@@ -27,18 +41,20 @@ const AdventureGrid = ({ content }) => {
       <div className="adventure-grid">
         <Richtext content={content} />
         <ul className="adventure-tabs">
-            <li className="adventure-tab-item-active">All</li>
-            <li className="adventure-tab-item">Climbing</li>
-            <li className="adventure-tab-item">Cycling</li>
-            <li className="adventure-tab-item">Skiing</li>
-            <li className="adventure-tab-item">Surfing</li>
-            <li className="adventure-tab-item">Travel</li>
+            {tabs.map((index) => {
+              console.log(filter===undefined)
+              if(index === "All")
+                return <li className={`adventure-tab-item${filter === undefined?'-active':''}`}><Link key={index.toLowerCase()} to={`/adventures/adventures`}>{index}</Link></li>
+              else
+                return <li className={`adventure-tab-item${index.toLowerCase()===filter?'-active':''}`}><Link key={index.toLowerCase()} to={`/adventures/adventures{${index.toLowerCase()}}`}>{index}</Link></li>
+            })}
+            
         </ul>
         <ul className="adventure-list">
           {data.adventureList.items.map((adventure) => (
             <li className="adventure-item">
               <article>
-                <Image src={adventure.adventurePrimaryImage} />
+                <Link key={adventure.adventureTitle} to={LinkManager(adventure)}><Image src={adventure.adventurePrimaryImage} /></Link>
                 <span className="adventure-item-title">
                   {adventure.adventureTitle}
                 </span>

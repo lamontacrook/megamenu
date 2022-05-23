@@ -2,6 +2,7 @@
     display: flex;
     margin: 0 auto;
     flex-direction: column;
+    width:100%;
 }
 
 .adventure-tabs {
@@ -12,25 +13,36 @@
     max-width: 1136px;
     margin: 0 auto;
     align-items:baseline;
-    padding: 10px;
+    
+    padding: 10px 10px 10px 0px;
+
 }
 
 .adventure-tabs > .adventure-tab-item {
     width: auto;
-    margin-left: 10px;
-    padding: 10px;
-    padding-left:20px;
-    padding-right:20px;
+    margin-right: 10px;
+    padding: 10px 20px 10px 20px;
     left:0px;
   }
 
   .adventure-tabs > .adventure-tab-item-active {
     width: auto;
     margin-left: 0px;
-    padding: 10px;
-    
+    padding: 10px 20px 10px 20px;
     background-color: black;
+    font-weight: 600;
+  }
+
+  .adventure-tabs > .adventure-tab-item-active a {
+    font-style: normal;
     color: white;
+    text-decoration: none;
+  }
+
+  .adventure-tabs > .adventure-tab-item a {
+    font-style: normal;
+    color: inherit;
+    text-decoration: none;
   }
 
 .adventure-list {
@@ -42,14 +54,15 @@
     margin: 0 auto;
     align-items:baseline;
     padding: 0;
-    justify-content: space-between;
+    justify-content: start;
     overflow: hidden;
     flex-wrap: wrap;
+
   }
   
   .adventure-list > .adventure-item {
     width: 260px;
-    margin-left: 0;
+    margin: 0 14px 14px 0;
     padding-left: 0;
   }
   

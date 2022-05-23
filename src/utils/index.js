@@ -1,17 +1,26 @@
-const RootPath = "/content/dam/megamenu/entities";
+const RootPaths = [
+  "/content/dam/aem-demo-assets/en",
+  "/content/dam/megamenu/entities",
+];
 const LinkManager = (props) => {
-    return props && props._path?props._path.replace(RootPath, ""):"";
-}
+  let path = "";
+  RootPaths.map((RootPath) => {
+    if (props && props._path && props._path.includes(RootPath)) {
+      console.log(props._path.replace(RootPath, ""));
+      path = props._path.replace(RootPath, "");
+    }
+  });
+  return path;
+};
 
 const ConstructURL = (props) => {
-    if(!props)
-        console.log("error....");
+  if (!props) console.log("error....");
 
-    if(!props.parent && (props.folder && props.screen)) 
-        return `${RootPath}/${props.folder}/${props.screen}`
+  if (!props.parent && props.folder && props.screen)
+    return `${RootPaths[1]}/${props.folder}/${props.screen}`;
 
-    if(props.parent && props.folder && props.screen)
-        return `${RootPath}/${props.parent}/${props.folder}/${props.screen}`
-}
+  if (props.parent && props.folder && props.screen)
+    return `${RootPaths[1]}/${props.parent}/${props.folder}/${props.screen}`;
+};
 
-export {RootPath, LinkManager, ConstructURL};
+export { RootPaths, LinkManager, ConstructURL };

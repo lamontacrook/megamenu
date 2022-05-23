@@ -17,6 +17,14 @@ import {ProgressCircle} from '@adobe/react-spectrum'
 const Screen = () => {
  
   const props = useParams();
+  const re = new RegExp('{([^}]*)}');
+
+  const filters = re.exec(props.screen);
+
+  if(filters && filters.length === 2) {
+    props.screen = props.screen.replace(filters[0], '');
+    props.filter = filters[1];
+  }
 
   const request =
     props && ConstructURL(props)

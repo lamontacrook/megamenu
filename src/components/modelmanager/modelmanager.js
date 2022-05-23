@@ -18,6 +18,7 @@ export const componentMapping = {
 
 const ModelManager = ({ type, content, references }) => {
   console.log(type);
+
     const Component = componentMapping[type.replace("Model","")];
     if(typeof Component !== "undefined")
       return <Component content={content} references={references} />

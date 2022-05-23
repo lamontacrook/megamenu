@@ -11,7 +11,7 @@ export const navigationQuery = `{
   }
 }`;
 
-export  const xfShare = `{
+export const xfShare = `{
   experienceFragmentList(filter: {
     shareThisStory: {
       _expressions: {
@@ -350,9 +350,22 @@ export function screenQuery(name) {
   }`;
 }
 
-export const adventureList = `{
-	adventureList {
+export const adventureList = (type) => {
+  let filter = "";
+  if (type) {
+    filter = `(filter: {
+      adventureActivity: {
+        _expressions: {
+          value: "${type}"
+          _ignoreCase: true
+        }
+      }
+    })`;
+  }
+  return `{
+	adventureList${filter} {
     items {
+      _path
       adventureTitle
       adventureDescription {
         plaintext
@@ -365,3 +378,4 @@ export const adventureList = `{
     }
   }
 }`;
+};
