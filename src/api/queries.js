@@ -191,6 +191,40 @@ export function screenByPath(path) {
               html
             }
           }
+          ... on AdventureDetailModel {
+            _model {
+              _path
+              title
+            }
+            adventureDetailReference {
+              ... on AdventureModel {
+                adventureTitle
+                adventureDescription {
+                  html
+                }
+                adventurePrimaryImage {
+                  ... on ImageRef {
+                    _publishUrl
+                  }
+                }
+                adventureActivity
+                adventureType
+                adventureTripLength
+                adventureGroupSize
+                adventureDifficulty
+                adventureDescription {
+                  html
+                }
+                adventurePrice
+                adventureItinerary {
+                  html
+                }
+                adventureGearList {
+                  html
+                }
+              }
+            }
+          }
         }
       }
     }

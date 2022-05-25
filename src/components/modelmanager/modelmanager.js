@@ -1,10 +1,11 @@
 import React from "react";
 import Teaser from "../teaser";
-import ExperienceFragment from "../experiencefragment/experiencefragment";
+import ExperienceFragment from "../experiencefragment";
 import RichText from "../richtext";
-import AdventureGrid from "../adventuregrid/adventuregrid";
+import AdventureGrid from "../adventuregrid";
 import ImageList from "../imagelist";
-import Article from "../article/article";
+import Article from "../article";
+import AdventureDetail from "../adventuredetail";
 
 
 export const componentMapping = {
@@ -13,7 +14,8 @@ export const componentMapping = {
   ImageList,
   Teaser,
   AdventureGrid,
-  Article
+  Article,
+  AdventureDetail
 }
 
 const ModelManager = ({ type, content, references }) => {
