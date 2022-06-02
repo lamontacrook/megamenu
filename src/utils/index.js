@@ -1,4 +1,4 @@
-const {REACT_APP_SITE, REACT_APP_REFERENCE_DEMO} = process.env;
+const { REACT_APP_SITE, REACT_APP_REFERENCE_DEMO } = process.env;
 
 const RootPaths = [
   `/content/dam/${REACT_APP_REFERENCE_DEMO}/en`,
