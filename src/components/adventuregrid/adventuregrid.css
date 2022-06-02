@@ -54,7 +54,7 @@
     margin: 0 auto;
     align-items:baseline;
     padding: 0;
-    justify-content: start;
+    justify-content: flex-start;
     overflow: hidden;
     flex-wrap: wrap;
 

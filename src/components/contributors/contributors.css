@@ -1,0 +1,53 @@
+.contributors {
+  margin: 0 auto;
+}
+.contributors-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+  align-items: baseline;
+  padding: 0;
+  justify-content: space-between;
+}
+.contributors-description {
+    padding-bottom: 10px;
+    
+}
+.contributors-list > .contributor {
+  width: 260px;
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.contributors-list > .contributor img {
+  margin: 0 auto;
+  border-radius: 50%;
+  height: 164px;
+  width: 164px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.contributor {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.contributor-name {
+  text-align: center;
+  padding-top: 10px;
+  font-family: Asar, Georgia, Times New Roman, Times, serif;
+  font-weight: 300;
+}
+
+.contributor-profession {
+  text-align: center;
+  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+}

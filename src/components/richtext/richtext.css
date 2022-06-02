@@ -1,4 +1,13 @@
-.underline {
+.rich-text {
+    position: relative;
+    width: 100%;
+    max-width: 1136px;
+    background-color: #fff;
+    margin: 0 auto;
+    min-height: 70px;
+  }
+
+  .underline {
     position: relative;
     width: 100%;
     max-width: 1136px;

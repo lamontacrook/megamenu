@@ -42,7 +42,7 @@ const AdventureGrid = ({ content }) => {
         <Richtext content={content} />
         <ul className="adventure-tabs">
             {tabs.map((index) => {
-              console.log(filter===undefined)
+              
               if(index === "All")
                 return <li className={`adventure-tab-item${filter === undefined?'-active':''}`}><Link key={index.toLowerCase()} to={`/adventures/adventures`}>{index}</Link></li>
               else

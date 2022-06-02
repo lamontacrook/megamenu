@@ -147,6 +147,21 @@ export function screenByPath(path) {
                       }
                     }
                   }
+                  ... on AdventureDetailModel {
+                    adventureDetailReference {
+                      ... on AdventureModel {
+                        promoTitle: adventureTitle
+                        promoDescription: adventureDescription {
+                          plaintext
+                        }
+                        promoImage: adventurePrimaryImage {
+                          ... on ImageRef {
+                            _publishUrl
+                          }
+                        }
+                      }
+                    }
+                  }
                   ... on ExperienceFragmentModel {
                     _path
                     promoTitle: xfName
@@ -225,6 +240,31 @@ export function screenByPath(path) {
               }
             }
           }
+          ... on ContributorsModel {
+            _model {
+              title
+              _path
+            }
+            contributorsTitle
+            contributorsDescription {
+              plaintext
+            }
+            contributors {
+              ... on ContributorModel {
+                _model {
+                  title
+                  _path
+                }
+                contributorName
+                contributorProfession
+                contributorImage {
+                  ... on ImageRef {
+                    _publishUrl
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -233,6 +273,7 @@ export function screenByPath(path) {
 
 export function screenQuery(name) {
   name = name.replaceAll("-", " ");
+
   return `{
     screen: screenList(
       filter: {screenName: {_expressions: {value: "${name}", _ignoreCase: true}}}
@@ -248,7 +289,6 @@ export function screenQuery(name) {
             }
             articleBody {
               json
-              
             }
             articleTitle
             articleMainImage {
@@ -298,7 +338,6 @@ export function screenQuery(name) {
             xfMainImage {
               ... on ImageRef {
                 _publishUrl
-                
               }
             }
             xfName
@@ -324,22 +363,26 @@ export function screenQuery(name) {
               title
             }
             imageListPromoAssets {
-              ... on WkndGqlAdventureModel {
-                promoTitle: adventureTitle
-                promoDescription: adventureDescription {
-                  plaintext
-                }
-                promoImage: adventurePrimaryImage {
-                  ... on ImageRef {
-                    _publishUrl
-                  }
-                }
-              }
               ... on ScreenModel {
                 _path
+                screenName
                 block {
+                  ... on AdventureDetailModel {
+                    adventureDetailReference {
+                      ... on AdventureModel {
+                        promoTitle: adventureTitle
+                        promoDescription: adventureDescription {
+                          plaintext
+                        }
+                        promoImage: adventurePrimaryImage {
+                          ... on ImageRef {
+                            _publishUrl
+                          }
+                        }
+                      }
+                    }
+                  }
                   ... on ArticleModel {
-                    _path
                     promoTitle: articleTitle
                     promoDescription: articleSummary {
                       plaintext
@@ -351,7 +394,6 @@ export function screenQuery(name) {
                     }
                   }
                   ... on ExperienceFragmentModel {
-                    _path
                     promoTitle: xfName
                     promoDescription: xfDescription {
                       plaintext
@@ -361,18 +403,6 @@ export function screenQuery(name) {
                         _publishUrl
                       }
                     }
-                  }
-                }
-              }
-              ...on ExperienceFragmentModel {
-                promoTitle: xfName
-                promoDescription: xfDescription {
-                  plaintext
-                }
-                
-                promoImage: xfMainImage {
-                  ... on ImageRef {
-                    _publishUrl
                   }
                 }
               }

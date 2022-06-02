@@ -48,8 +48,6 @@ const Screen = () => {
     if (Array.isArray(data.screen.body)) data.screen.body = data.screen.body[0];
     let i = 0;
 
-    console.log(data.screen._references);
-
     return (
       <React.Fragment>
         <div className="login">

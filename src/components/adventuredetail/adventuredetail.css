@@ -70,16 +70,61 @@
     display: flex;
     flex-direction: row;
     list-style: none;
-    background-color: blue;
+    background-color: white;
+    margin: 0 auto;
+    padding:0;
 } 
 
-.adventure-detail-tabs > li {
+.adventure-detail-tabs > li > button {
     margin-right: 20px;
     background-color: white;
-    padding: 10px 15px 10px 15px;
+    padding: 8px 15px 8px 15px;
+    margin-left: 0;
+    border: 0;
 }
 
+.adventure-detail-tabs > li > button.active {
+    color: white;
+    background-color: black;
+    font-weight: 600;
+  }
+
 .adventure-detail-description {
-    background-color: red;
+    background-color: white;
     width:70%;
+    line-height: 40px;
+}
+
+.adventure-detail-description-body > img {
+    object-fit: contain;
+    width:100%;
+}
+
+.overview {
+    display: contents;
+}
+
+.itinerary {
+    display:none;
+}
+
+.what-to-bring {
+    display: none;
+}
+
+.adventure-detail-description-body > span > ul > li::marker {
+    content: "\1F95E";
+    font-family: wknd-icon-font!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: .55em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    top: -0.25em;
+    left: -0.75em;
 }

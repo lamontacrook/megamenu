@@ -4,23 +4,14 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import Screen from "./screen";
 import { ErrorBoundary } from "react-error-boundary";
 
-
-
 const ErrorFallback = ({ error, resetErrorBoundary }) => {
-  console.log(error.message);
   return (
-    <div role="alert" className="alert">
-      <form>
-        <h3>Login Here</h3>
-
-        <label for="authorUR">Author URL</label>
-        <input type="text" placeholder="https://author-p24020-e217804.adobeaemcloud.com" id="author-url" />
-
-        <label for="token">Token</label>
-        <input type="multiline" placeholder="Token" id="token" />
-
-        <button onClick={resetErrorBoundary}>Try again</button>
-      </form>
+    <div class="error-message">
+      <span class="error-text">
+        <h1>{error.name}</h1>
+        {error.message}
+        <pre>{error.stack}</pre>
+      </span>
     </div>
   );
 };
@@ -31,41 +22,25 @@ const App = () => {
       <Switch>
         <Route exact={true} path={"/:screen"}>
           <ErrorBoundary
-            FallbackComponent={ErrorFallback}
-            onReset={() => {
-              console.log("reset");
-            }}
-          >
+            FallbackComponent={ErrorFallback}>
             <Screen />
           </ErrorBoundary>
         </Route>
         <Route exact={true} path={"/:folder/:screen"}>
           <ErrorBoundary
-            FallbackComponent={ErrorFallback}
-            onReset={() => {
-              console.log("reset");
-            }}
-          >
+            FallbackComponent={ErrorFallback}>
             <Screen />
           </ErrorBoundary>
         </Route>
         <Route exact={true} path={"/:parent/:folder/:screen"}>
           <ErrorBoundary
-            FallbackComponent={ErrorFallback}
-            onReset={() => {
-              console.log("reset");
-            }}
-          >
+            FallbackComponent={ErrorFallback}>
             <Screen />
           </ErrorBoundary>
         </Route>
         <Route path="/">
           <ErrorBoundary
-            FallbackComponent={ErrorFallback}
-            onReset={() => {
-              console.log("reset");
-            }}
-          >
+            FallbackComponent={ErrorFallback}>
             <Screen />
           </ErrorBoundary>
         </Route>
