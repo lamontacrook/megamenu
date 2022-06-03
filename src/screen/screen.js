@@ -11,8 +11,6 @@ import { Link, useParams } from "react-router-dom";
 import ModelManager from "../components/modelmanager";
 import {ConstructURL} from "../utils";
 
-import {ProgressCircle} from '@adobe/react-spectrum'
-
 
 const Screen = () => {
  
@@ -39,7 +37,7 @@ const Screen = () => {
     setHasFetched(true);
     return <div>here be errors</div>;
   } else if (!hasFetched && data === null) {
-    return <ProgressCircle aria-label="Loading…" isIndeterminate />;
+    return "Loading...";
   } else if (hasFetched && !data.screen) {
     return <ErrorScreen error="There was an error with the returned data." />;
   } else if (data != null) {

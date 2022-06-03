@@ -6,7 +6,7 @@ const RootPaths = [
 ];
 const LinkManager = (props) => {
   let path = "";
-  RootPaths.map((RootPath) => {
+  RootPaths.forEach((RootPath) => {
     if (props && props._path && props._path.includes(RootPath)) {
       path = props._path.replace(RootPath, "");
     }
