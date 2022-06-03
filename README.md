@@ -4,11 +4,15 @@
 
 > **_NOTE:_** This template will create models with predifined names, so they have the potential of colliding with other model names in your environment.  This means that this template can only be used onces.  This issue will be addressed in future builds.
 
-2. Clone this environment if you haven't already.  To install, execute from the command line.
+2. Open the env.template file and fill in the information for your environment.  You will need to supply a developer token.  This can be found in the developer console.  Documentation for how to find the token can be found [here](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/authentication/local-development-access-token.html?lang=en#:~:text=The%20Local%20Development%20Access%20Token,or%20store%20in%20source%20control).  Scroll down to "Generate a Local Development Access Token". and .env file using the env.template file.  
+
+> **_NOTE:_** This is reliant on the reference demo, however can work with a build of WKND by updating the ```REACT_APP_REFERENCE_DEMO``` environment variable to reference the appropriate environment.
+
+3. Clone this environment if you haven't already.  To install, execute from the command line.
 
 ```npm i```
 
-3. After the script finishes, execute from the command line.
+4. After the script finishes, execute from the command line.
 
 ```npm start```
 
