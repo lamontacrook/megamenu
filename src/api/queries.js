@@ -1,3 +1,6 @@
+const ArticleModel = 'ArticleModel_5';
+const ContributorModel = 'ContributorModel_2';
+
 export const navigationQuery = `{
   topList {
     items {
@@ -43,7 +46,7 @@ export function screenByPath(path) {
         _path
         block {
           __typename
-          ... on ArticleModel {
+          ... on ${ArticleModel} {
             _model {
               _path
               title
@@ -135,7 +138,7 @@ export function screenByPath(path) {
               ... on ScreenModel {
                 _path
                 block {
-                  ... on ArticleModel {
+                  ... on ${ArticleModel} {
                     _path
                     promoTitle: articleTitle
                     promoDescription: articleSummary {
@@ -250,7 +253,7 @@ export function screenByPath(path) {
               plaintext
             }
             contributors {
-              ... on ContributorModel {
+              ... on ${ContributorModel} {
                 _model {
                   title
                   _path
@@ -273,6 +276,7 @@ export function screenByPath(path) {
 
 export function screenQuery(name) {
   name = name.replaceAll("-", " ");
+  name = name.charAt(0).toUpperCase() + name.slice(1);
 
   return `{
     screen: screenList(
@@ -282,7 +286,7 @@ export function screenQuery(name) {
         _path
         block {
           __typename
-          ... on ArticleModel {
+          ... on ${ArticleModel} {
             _model {
               _path
               title
@@ -382,7 +386,7 @@ export function screenQuery(name) {
                       }
                     }
                   }
-                  ... on ArticleModel {
+                  ... on ${ArticleModel} {
                     promoTitle: articleTitle
                     promoDescription: articleSummary {
                       plaintext

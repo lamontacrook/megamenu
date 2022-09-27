@@ -50,7 +50,7 @@ const Screen = () => {
       <React.Fragment>
         <div className="login">
         {process.env.NODE_ENV !== 'development' || <a
-            href={`${process.env.REACT_APP_HOST_URI}/editor.html${data.screen.body._path}`}
+            href={`${process.env.REACT_APP_PUBLIC_URI}/editor.html${data.screen.body._path}`}
             target="_blank"
             className="fragment-editor"
             rel="noopener noreferrer"
